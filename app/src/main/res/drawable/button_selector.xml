@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Trạng thái khi nút được nhấn -->
+    <item android:state_pressed="true" android:drawable="@drawable/button_hover_choose" />
+    <!-- Trạng thái khi nút không được nhấn -->
+    <item android:drawable="@drawable/button_default_choose" />
+</selector>
