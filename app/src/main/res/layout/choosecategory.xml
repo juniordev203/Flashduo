@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_chinese"
+            android:id="@+id/btn_tracnghiem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
             tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_english"
+            android:id="@+id/btn_flashcard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -76,10 +76,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_chinese" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_tracnghiem" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_french"
+            android:id="@+id/btn_maucau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -93,10 +93,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_english" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_flashcard" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_russian"
+            android:id="@+id/btn_phatam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -110,10 +110,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_french" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_maucau" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_spain"
+            android:id="@+id/btn_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -128,26 +128,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_russian"
+            app:layout_constraintTop_toBottomOf="@+id/btn_phatam"
             app:layout_constraintVertical_bias="0.034" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/btn_continue"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_yellow"
-        android:layout_marginBottom="65dp"
         android:text="Tiếp tục"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textAllCaps="false"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_continue"
+        app:layout_constraintStart_toStartOf="@+id/btn_continue"
+        app:layout_constraintTop_toTopOf="@+id/btn_continue"
+        app:layout_constraintVertical_bias="0.625"
+        app:srcCompat="@drawable/image2"
+        android:elevation="3dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

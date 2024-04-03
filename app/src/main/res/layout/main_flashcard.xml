@@ -81,25 +81,61 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/zoom" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout8"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:background="@drawable/button_subject"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">>
+
+        <TextView
+            android:id="@+id/txttranslatechinese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATA"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/zoom" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
         app:srcCompat="@drawable/bacham" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
         android:layout_width="match_parent"
-        android:layout_height="1300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView16">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -108,8 +144,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@drawable/languagebtn"
-            android:text="Thẻ ghi nhớ"
             android:paddingEnd="80dp"
+            android:text="Thẻ ghi nhớ"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
@@ -135,8 +171,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/languagebtn"
-            android:text="Học"
             android:paddingEnd="140dp"
+            android:text="Học"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
@@ -162,8 +198,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/languagebtn"
-            android:text="Kiểm tra"
             android:paddingEnd="100dp"
+            android:text="Kiểm tra"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"
@@ -189,8 +225,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/languagebtn"
-            android:text="Ghép thẻ"
             android:paddingEnd="98dp"
+            android:text="Ghép thẻ"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="normal"

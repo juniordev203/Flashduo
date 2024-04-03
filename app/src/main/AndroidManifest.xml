@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".chooselanguage" />
         <activity android:name=".subject" />
+        <activity android:name=".choosecategory" />
+        <activity android:name=".main_flashcard" />
     </application>
 
 </manifest>
