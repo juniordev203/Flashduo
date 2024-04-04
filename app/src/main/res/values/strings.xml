@@ -3,4 +3,6 @@
     <string name="todo">TODO</string>
     <string name="text_batdau">Bắt đầu</string>
     <string name="h_c_ng_n_ng_m_i_c_ng_flashduo">Học ngôn ngữ mới cùng Flashduo..</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

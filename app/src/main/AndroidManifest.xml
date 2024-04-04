@@ -25,6 +25,7 @@
         <activity android:name=".subject" />
         <activity android:name=".choosecategory" />
         <activity android:name=".main_flashcard" />
+        <activity android:name=".main_card" />
     </application>
 
 </manifest>
