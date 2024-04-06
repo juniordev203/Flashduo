@@ -2,14 +2,10 @@ package com.example.flashduo3;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
@@ -22,10 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-
+        insertJsonDataIntoDatabase(db);
         Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
-            insertJsonDataIntoDatabase(db);
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);
             startActivity(intent);
         });
