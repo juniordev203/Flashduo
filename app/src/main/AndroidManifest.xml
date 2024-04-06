@@ -26,6 +26,9 @@
         <activity android:name=".choosecategory" />
         <activity android:name=".main_flashcard" />
         <activity android:name=".main_card" />
+        <activity android:name=".card_layout" />
+        <activity android:name=".VocabDetailActivity" />
+        <activity android:name=".main_vocab" />
     </application>
 
 </manifest>

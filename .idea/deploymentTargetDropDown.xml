@@ -21,6 +21,9 @@
       <entry key="choosecategory">
         <State />
       </entry>
+      <entry key="main_card">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

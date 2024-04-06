@@ -2,23 +2,17 @@ package com.example.flashduo3;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class main_card extends AppCompatActivity{
+public class main_vocab extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private Button btn_card1;
     private ImageView img_exit1;
     private ImageView img_plus;
     private ImageView img_undo;
@@ -26,8 +20,9 @@ public class main_card extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_card);
+        setContentView(R.layout.main_vocab);
         recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Vocab> listVocab = new ArrayList<>();
         listVocab.add(new Vocab("猫", "Mèo", "[māo]")); // Mèo (chó mèo) - Mao
@@ -55,7 +50,7 @@ public class main_card extends AppCompatActivity{
         // Khởi tạo Adapter và đặt Adapter cho RecyclerView
         MyAdapter adapter = new MyAdapter(this, listVocab);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         img_exit1 = findViewById(R.id.img_exit1);
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);
@@ -63,11 +58,12 @@ public class main_card extends AppCompatActivity{
 
         img_exit1.setOnClickListener(v -> {
             // Xử lý sự kiện khi người dùng click vào button
-            Intent intent = new Intent(main_card.this, main_flashcard.class);
+            Intent intent = new Intent(main_vocab.this, main_flashcard.class);
             startActivity(intent);
         });
         img_play.setOnClickListener(v -> {
-
+            Intent intent = new Intent(main_vocab.this, main_flashcard.class);
+            startActivity(intent);
         });
     }
 }
