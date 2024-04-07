@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/play" />
 
     <TextView
-        android:id="@+id/tv_term"
+        android:id="@+id/tv_chinese"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_def"
+        android:id="@+id/tv_meaning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -70,6 +70,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_term" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_chinese" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

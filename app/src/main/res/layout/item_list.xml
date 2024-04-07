@@ -10,7 +10,7 @@
         android:padding="16dp"
         android:background="@drawable/button_card">
         <TextView
-            android:id="@+id/tv_term"
+            android:id="@+id/tv_chinese"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="32sp"
@@ -18,7 +18,7 @@
             android:gravity="center"
             android:layout_marginBottom="8dp"/>
         <TextView
-            android:id="@+id/tv_def"
+            android:id="@+id/tv_meaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

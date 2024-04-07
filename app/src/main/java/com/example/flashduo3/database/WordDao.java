@@ -20,11 +20,13 @@ public interface WordDao {
     @Insert
     void insertAll(List<Word> words);
 
-    @Query("Select * FROM Word where id = :wordId")
-    Word getById(int wordId);
+    @Query("Select * FROM Word where id = :allId")
+    Word getById(int allId);
 
-    @Query("Select id, chinese, meaning, picture FROM Word where id = :wordId")
-    Word getWordById(int wordId);
+    @Query("Select id, chinese, meaning FROM Word where id = :wordId")
+    List<Word> getWords(int wordId);
+//    @Query("Select id, chinese, meaning, picture FROM Word where id = :wordId")
+//    Word getWordById(int wordId);
 
     @Query("Select id, question, options, answer FROM Word where id = :questionId")
     Word getQuestionById(int questionId);

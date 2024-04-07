@@ -19,13 +19,19 @@ public class main_card extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_card);
-        recyclerView = findViewById(R.id.rcv_vocab);
-        img_exit1 = findViewById(R.id.img_exit1);
+        initUi();
         img_exit1.setOnClickListener(v -> {
             // Xử lý sự kiện khi người dùng click vào button
             Intent intent = new Intent(main_card.this, main_flashcard.class);
             startActivity(intent);
         });
-
+    }
+    private void initUi() {
+        recyclerView = findViewById(R.id.rcv_vocab);
+        btn_card1 = findViewById(R.id.btn_card1);
+        img_exit1 = findViewById(R.id.img_exit1);
+        img_plus = findViewById(R.id.img_plus);
+        img_undo = findViewById(R.id.img_undo);
+        img_play = findViewById(R.id.img_play);
     }
 }

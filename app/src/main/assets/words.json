@@ -1,0 +1,142 @@
+[
+  {
+    "chinese": "中文",
+    "meaning": "Chinese",
+    "sentence": "中文很落後",
+    "question": "Which term in Chinese refers to the Chinese language?",
+    "options": [
+      "汉语 (Hànyǔ)",
+      "中文 (Zhōngwén)",
+      "日本語 (Nihongo)",
+      "한국어 (Hangugeo)"
+    ],
+    "answer": "中文 (Zhōngwén)",
+    "picture": "chinese"
+  },
+  {
+    "chinese": "方式",
+    "meaning": "path, plan, pattern, tenor, system, method, manner, style, way, guise, fashion, wise, means, shape, how, embodiment, agency, gate, mode, sort",
+    "sentence": "我们需要找到一种新的方式来解决这个问题。-  We need to find a new method to solve this problem.",
+    "question": "What does the term \"方式\" (Fāngshì) mean in Chinese?",
+    "options": [
+      "Method",
+      "Food",
+      "Destination",
+      "Color"
+    ],
+    "answer": "Method",
+    "picture": "method"
+  },
+  {
+    "chinese": "校園",
+    "meaning": "schoolyard, campus",
+    "sentence": "我喜欢在校園里散步。 I like to take a walk on the school campus.",
+    "question": "",
+    "options": [
+      "A type of flower",
+      "A traditional ceremony",
+      "A school campus",
+      "A martial arts technique"
+    ],
+    "answer": "A school campus",
+    "picture": "campus"
+  },
+  {
+    "chinese": "社區",
+    "meaning": "community",
+    "sentence": "在我们的社區中，居民们彼此相互支持。 - In our community, residents support each other.",
+    "question": "What does the term \"社區\" (Shèqū) mean in Chinese?",
+    "options": [
+      "A type of food",
+      "A form of art",
+      "A community",
+      "A musical instrument"
+    ],
+    "answer": "A community",
+    "picture": "community"
+  },
+  {
+    "chinese": "積極",
+    "meaning": "positive, active, energetic, vigorous",
+    "sentence": "她的積極態度讓她成功克服了許多困難。 - Her proactive attitude helped her overcome many difficulties successfully.",
+    "question": "What does the term \"積極\" (Jījí) primarily connote in Chinese culture?",
+    "options": [
+      "Proactive and optimistic",
+      "Passive and pessimistic",
+      "Indifferent and apathetic",
+      "Impulsive and reckless"
+    ],
+    "answer": "Proactive and optimistic",
+    "picture": "optimistic"
+  },
+  {
+    "chinese": "經營",
+    "meaning": "manage, run, engage in",
+    "sentence": "他精明地經營著他的企業，使其持續增長。 - He manages his business shrewdly, ensuring its continuous growth.",
+    "question": "What does the term \"經營\" (Jīngyíng) typically refer to in a business context?",
+    "options": [
+      "Marketing",
+      "Management",
+      "Accounting",
+      "Human Resources"
+    ],
+    "answer": "Management",
+    "picture": "manage"
+  },
+  {
+    "chinese": "美麗",
+    "meaning": "beautiful",
+    "sentence": "她穿著一袭美麗的白色礼服出席晚宴。 - She wore a beautiful white gown to the evening banquet.",
+    "question": "What does the term \"美麗\" (Měilì) mean in Chinese?",
+    "options": [
+      "Delicious",
+      "Beautiful",
+      "Dangerous",
+      "Expensive"
+    ],
+    "answer": "Beautiful",
+    "picture": "beautiful"
+  },
+  {
+    "chinese": "老",
+    "meaning": "old, aged;of long standing, outdated, tough, overgrown, dark (of colors)",
+    "sentence": "这个老人在公园里散步。 - The old man is walking in the park.",
+    "question": "What does the term \"老\" (Lǎo) commonly indicate in Chinese?",
+    "options": [
+      "Old",
+      "Young",
+      "Tired",
+      "Happy"
+    ],
+    "answer": "Old",
+    "picture": "old"
+  },
+  {
+    "chinese": "行政",
+    "meaning": "administration",
+    "sentence": "行政部门负责处理公司的日常管理事务。 - The administration department is responsible for handling the company's daily management affairs.",
+    "question": "What does the term \"行政\" (Xíngzhèng) typically refer to in an organizational context?",
+    "options": [
+      "Finance",
+      "Human Resources",
+      "Administration",
+      "Marketing"
+    ],
+    "answer": "Administration",
+    "picture": "administration"
+  },
+  {
+    "chinese": "製作",
+    "meaning": "make, manufacture",
+    "sentence": "他喜歡製作手工藝品作為禮物送給朋友。 - He enjoys making handmade crafts as gifts for friends.",
+    "question": "What does the term \"製作\" (Zhìzuò) refer to in Chinese?",
+    "options": [
+      "Cooking",
+      "Making",
+      "Selling",
+      "Repairing"
+    ],
+    "answer": "Making",
+    "picture": "manufacture"
+  }
+]
