@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/play" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/rcv_vocab"
         android:layout_width="300dp"
         android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"

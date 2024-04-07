@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flashduo3.main.MainActivity;
+
 
 public class chooselanguage extends AppCompatActivity {
     // Khai báo biến languageSelected ở đây để nó có thể được truy cập từ mọi phương thức trong lớp
