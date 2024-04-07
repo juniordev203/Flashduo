@@ -14,9 +14,14 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     private List<Word> words;
     private Context context;
-    public MyAdapter(main_vocab mainVocab, List<Word> words) {
+
+    public MyAdapter(Context context ,List<Word> words) {
         this.words = words;
         this.context = context;
+    }
+    private void setData(List<Word> words) {
+        this.words = words;
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
@@ -27,10 +32,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
-//        if (words != null && position < words.size()) {
-//            holder.tvChinese.setText(words.get(position).getChinese());
-//            holder.tvMeaning.setText(words.get(position).getMeaning());
-//        }
         Word word = words.get(position);
         holder.tvChinese.setText(word.getChinese());
         holder.tvMeaning.setText(word.getMeaning());
