@@ -15,44 +15,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        JsonManu jsonmanu = new JsonManu();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-        insertJsonDataIntoDatabase(db);
+        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
         Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);
             startActivity(intent);
         });
-    }
-
-    private void insertJsonDataIntoDatabase(AppDatabase db) {
-        new Thread(() -> {
-            String json = loadJsonFromAssets();
-
-            Type listType = new TypeToken<List<Word>>() {
-            }.getType();
-            List<Word> words = new Gson().fromJson(json, listType);
-
-            db.wordDao().deleteAll();
-            db.wordDao().insertAll(words);
-        }).start();
-
-    }
-
-    private String loadJsonFromAssets() {
-        String json;
-        try {
-            InputStream is = getAssets().open("words.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, StandardCharsets.UTF_8);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
     }
 }
