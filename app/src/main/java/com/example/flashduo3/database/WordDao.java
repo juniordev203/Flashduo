@@ -5,6 +5,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.flashduo3.Word;
+
 import java.util.List;
 
 
@@ -15,7 +17,7 @@ public interface WordDao {
 
     @Insert
     void insertAll(List<Word> words);
-    @Query("SELECT * FROM word_table")
+    @Query("SELECT * FROM Word")
     List<Word> getAll();
 
     @Query("Select * FROM word_table where id = :allId")

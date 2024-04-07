@@ -10,6 +10,7 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.flashduo3.Converters;
+import com.example.flashduo3.Word;
 
 @Database(entities = {Word.class}, version = 2)
 @TypeConverters({Converters.class})
