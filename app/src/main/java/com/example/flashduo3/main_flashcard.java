@@ -12,8 +12,13 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.flashduo3.database.AppDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class main_flashcard extends AppCompatActivity {
     @Override
@@ -22,6 +27,7 @@ public class main_flashcard extends AppCompatActivity {
         setContentView(R.layout.main_flashcard);
         Button btn_card1 = findViewById(R.id.btn_card1);
         Button btn_card2 = findViewById(R.id.btn_card2);
+
         btn_card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

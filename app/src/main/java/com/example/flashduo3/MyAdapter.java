@@ -33,8 +33,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
         Word word = words.get(position);
-        holder.tvChinese.setText(word.getChinese());
-        holder.tvMeaning.setText(word.getMeaning());
+        if (word == null) {
+            return;
+        }
+        holder.tvChinese.setText(word.chinese);
+        holder.tvMeaning.setText(word.meaning);
     }
 
     @Override

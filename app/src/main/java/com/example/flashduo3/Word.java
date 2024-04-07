@@ -1,12 +1,15 @@
 package com.example.flashduo3;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "word_table")
+import java.util.List;
+
+@Entity
 public class Word {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     public int id;
 
     @ColumnInfo(name = "chinese")
@@ -18,11 +21,16 @@ public class Word {
     @ColumnInfo(name = "sentence")
     public String sentence;
 
-    public String getChinese() {
-        return chinese;
-    }
+    @ColumnInfo(name = "question")
+    public String question;
 
-    public String getMeaning() {
-        return meaning;
-    }
+    @ColumnInfo(name = "options")
+    public List<String> options;
+
+    @ColumnInfo(name = "answer")
+    public String answer;
+
+    @ColumnInfo(name = "picture")
+    public String picture;
+
 }

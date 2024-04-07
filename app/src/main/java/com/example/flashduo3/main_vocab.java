@@ -1,6 +1,7 @@
 package com.example.flashduo3;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.flashduo3.database.AppDatabase;
-import com.example.flashduo3.database.WordDao;
 
 import java.util.List;
 
@@ -36,8 +36,13 @@ public class main_vocab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_vocab);
         initUi();
-
-        // Kiểm tra nullability trước khi sử dụng đối tượng
+        JsonManu jsonmanu = new JsonManu();
+        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+        List<Word> words = db.wordDao().getAll();
+        MyAdapter myAdapter = new MyAdapter(this, words);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(myAdapter);
 
 
         // Xử lý sự kiện click vào button exit1
