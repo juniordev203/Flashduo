@@ -49,10 +49,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="100dp"
+        android:background="@color/backgound_color"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,8 +62,8 @@
 
         <EditText
             android:id="@+id/edt_chinese"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -70,7 +71,7 @@
         <EditText
             android:id="@+id/edt_meaning"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="63dp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -81,15 +82,16 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/image" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@drawable/button_yellow"
+            android:text="Add" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_vocab"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" />
     </LinearLayout>

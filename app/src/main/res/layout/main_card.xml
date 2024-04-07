@@ -46,14 +46,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/play" />
 
+    <ImageView
+        android:id="@+id/img_flip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img_play"
+        app:layout_constraintStart_toEndOf="@+id/img_undo"
+        app:srcCompat="@drawable/zoom" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_vocab"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
 
     <!--    Fragment để hiện thị button-->
 <!--    <androidx.fragment.app.FragmentContainerView-->

@@ -15,6 +15,7 @@ public class main_card extends AppCompatActivity{
     private ImageView img_plus;
     private ImageView img_undo;
     private ImageView img_play;
+    private ImageView img_flip;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +34,6 @@ public class main_card extends AppCompatActivity{
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);
         img_play = findViewById(R.id.img_play);
+        img_flip = findViewById(R.id.img_flip);
     }
 }

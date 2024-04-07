@@ -21,7 +21,7 @@ import com.example.flashduo3.database.AppDatabase;
 import java.util.List;
 
 public class main_vocab extends AppCompatActivity {
-    RecyclerView recyclerView;
+    public RecyclerView rcv_vocab;
     private ImageView img_exit1;
     private ImageView img_plus;
     private ImageView img_undo;
@@ -36,13 +36,20 @@ public class main_vocab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_vocab);
         initUi();
-        JsonManu jsonmanu = new JsonManu();
-        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
-        List<Word> words = db.wordDao().getAll();
-        MyAdapter myAdapter = new MyAdapter(this, words);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(myAdapter);
+
+        new Thread(() -> {
+            JsonManu jsonmanu = new JsonManu();
+            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+            List<Word> words = db.wordDao().getAll();
+            runOnUiThread(() -> {
+                MyAdapter myAdapter = new MyAdapter(words);
+                rcv_vocab.setLayoutManager(new LinearLayoutManager(this));
+                rcv_vocab.setAdapter(myAdapter);
+            });
+        }).start();
+
+
 
 
         // Xử lý sự kiện click vào button exit1
@@ -58,7 +65,7 @@ public class main_vocab extends AppCompatActivity {
 
 
     private void initUi() {
-        recyclerView = findViewById(R.id.rcv_vocab);
+        rcv_vocab = findViewById(R.id.rcv_vocab);
         img_exit1 = findViewById(R.id.img_exit1);
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);

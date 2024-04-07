@@ -23,7 +23,6 @@ public class Word {
 
     @ColumnInfo(name = "question")
     public String question;
-
     @ColumnInfo(name = "options")
     public List<String> options;
 

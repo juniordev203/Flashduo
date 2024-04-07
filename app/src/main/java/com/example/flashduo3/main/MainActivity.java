@@ -19,20 +19,13 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        JsonManu jsonmanu = new JsonManu();
-        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+//        JsonManu jsonmanu = new JsonManu();
+//        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+//        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
         Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);
             startActivity(intent);
         });
-        new Thread(() -> {
-            Word word = db.wordDao().getWordById(1);
-            Log.d("debug", word.chinese);
-            Log.d("debug", word.meaning);
-            Log.d("debug", word.picture);
-
-        }).start();
     }
 }

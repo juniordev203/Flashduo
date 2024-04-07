@@ -13,11 +13,9 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     private List<Word> words;
-    private Context context;
 
-    public MyAdapter(Context context ,List<Word> words) {
+    public MyAdapter(List<Word> words) {
         this.words = words;
-        this.context = context;
     }
     private void setData(List<Word> words) {
         this.words = words;
@@ -46,7 +44,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvChinese, tvMeaning;
+        private final TextView tvChinese;
+        private final TextView tvMeaning;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvChinese = itemView.findViewById(R.id.tv_chinese);
