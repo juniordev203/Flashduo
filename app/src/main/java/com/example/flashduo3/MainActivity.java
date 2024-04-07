@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         new Thread(() -> {
-            Word word = db.wordDao().getWordById(1);
+            Word word = db.wordDao().getWordById(2);
             Log.d("debug", word.chinese);
             Log.d("debug", word.meaning);
             Log.d("debug", word.picture);
