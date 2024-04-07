@@ -1,6 +1,7 @@
 package com.example.flashduo3;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 public class Word {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     public int id;
 
     @ColumnInfo(name = "chinese")
