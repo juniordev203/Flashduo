@@ -66,7 +66,8 @@
             android:layout_height="64dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:hint="Nhập từ mới ..."
+            android:textColorHint="@color/white"/>
 
         <EditText
             android:id="@+id/edt_meaning"
@@ -74,20 +75,37 @@
             android:layout_height="63dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:hint="Nhập nghĩa ..."
+            android:textColorHint="@color/white"/>
 
-        <ImageView
-            android:id="@+id/img_add"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/image" />
+            android:layout_height="96dp">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_yellow"
-            android:text="Add" />
+            <ImageView
+                android:id="@+id/img_addimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/image" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/button_card"
+                android:text="Thêm"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_vocab"

@@ -16,16 +16,14 @@ import com.example.flashduo3.database.WordDao;
 @Database(entities = {Word.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
+    public static final String DATABASE_NAME = "word_database";
+    public static AppDatabase db;
     static Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
             database.execSQL("ALTER TABLE word_table ADD COLUMN picture TEXT");
         }
     };
-    public static AppDatabase db;
-
-    public abstract WordDao wordDao();
-
     public static synchronized AppDatabase getDatabase(Context context){
         if (db == null){
             db = Room.databaseBuilder(context.getApplicationContext(),
@@ -35,4 +33,5 @@ public abstract class AppDatabase extends RoomDatabase {
         }
         return db;
     }
+    public abstract WordDao wordDao();
 }

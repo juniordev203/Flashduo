@@ -19,7 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public MyAdapter(List<Word> words) {
         this.words = words;
     }
-    private void setData(List<Word> words) {
+    public void setData(List<Word> words) {
         this.words = words;
         notifyDataSetChanged();
     }

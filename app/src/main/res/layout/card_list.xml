@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
@@ -7,19 +7,19 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/button_card"
-    android:elevation="8dp">
+    android:elevation="8dp"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:background="@drawable/button_card"
-        android:orientation="vertical">
+        android:background="@drawable/button_card">
 
         <TextView
             android:id="@+id/tv_chinese"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="62dp"
             android:gravity="center"
             android:rotation="0"
             android:text="TextView"
@@ -30,10 +30,10 @@
             android:id="@+id/tv_meaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="122dp"
             android:gravity="center"
             android:text="TextView"
             android:textColor="@color/white" />
 
-    </LinearLayout>
-</FrameLayout>
+    </FrameLayout>
+</LinearLayout>

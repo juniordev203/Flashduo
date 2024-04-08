@@ -23,17 +23,40 @@ public class main_vocab extends AppCompatActivity {
     private ImageView img_plus;
     private ImageView img_undo;
     private ImageView img_play;
-
+    private ImageView img_addimage;
     private EditText edt_chinese, edt_meaning;
-    private ImageView img_add;
     private Button btn_add;
-
-
+    private MyAdapter myAdapter;
+    private List<Word> words;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_vocab);
         initUi();
 
+        myAdapter = new MyAdapter(words);
+        myAdapter.setData(words);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rcv_vocab.setLayoutManager(linearLayoutManager);
+        rcv_vocab.setAdapter(myAdapter);
+        btn_add.setOnClickListener(v -> {
+            String strChinese = edt_chinese.getText().toString().trim();
+            String strMeaning = edt_meaning.getText().toString().trim();
+            if (strChinese.isEmpty() || strMeaning.isEmpty()) {
+                return;
+            }
+            Word word = new Word(strChinese, strMeaning);
+            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+            new Thread(() -> {
+                db.wordDao().insert(word);
+                words = db.wordDao().getAll();
+                runOnUiThread(() -> {
+                    myAdapter.setData(words);
+                    edt_chinese.setText("");
+                    edt_meaning.setText("");
+                });
+            }).start();
+        });
         new Thread(() -> {
             JsonManu jsonmanu = new JsonManu();
             AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
@@ -46,18 +69,15 @@ public class main_vocab extends AppCompatActivity {
             });
         }).start();
 
-
-
-
-        // Xử lý sự kiện click vào button exit1
         if (img_exit1 != null) {
             img_exit1.setOnClickListener(v -> startFlashcardActivity());
         }
-
-        // Xử lý sự kiện click vào button play
         if (img_play != null) {
             img_play.setOnClickListener(v -> startFlashcardActivity());
         }
+        img_undo.setOnClickListener(v -> {
+            hideSoftKeyboard();
+        });
     }
 
 
@@ -67,10 +87,9 @@ public class main_vocab extends AppCompatActivity {
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);
         img_play = findViewById(R.id.img_play);
-
         edt_chinese = findViewById(R.id.edt_chinese);
         edt_meaning = findViewById(R.id.edt_meaning);
-        img_add = findViewById(R.id.img_add);
+        img_addimage = findViewById(R.id.img_addimage);
         btn_add = findViewById(R.id.btn_add);
     }
 
