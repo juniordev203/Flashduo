@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class main_card extends AppCompatActivity{
     private RecyclerView recyclerView;
-    private Button btn_card1;
     private ImageView img_exit1;
     private ImageView img_plus;
     private ImageView img_undo;
@@ -29,7 +28,6 @@ public class main_card extends AppCompatActivity{
     }
     private void initUi() {
         recyclerView = findViewById(R.id.rcv_vocab);
-        btn_card1 = findViewById(R.id.btn_card1);
         img_exit1 = findViewById(R.id.img_exit1);
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);

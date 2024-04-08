@@ -1,21 +1,18 @@
 package com.example.flashduo3;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
+import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
 
 import java.util.List;
@@ -44,8 +41,8 @@ public class main_vocab extends AppCompatActivity {
             List<Word> words = db.wordDao().getAll();
             runOnUiThread(() -> {
                 MyAdapter myAdapter = new MyAdapter(words);
-                rcv_vocab.setLayoutManager(new LinearLayoutManager(this));
-                rcv_vocab.setAdapter(myAdapter);
+                    rcv_vocab.setLayoutManager(new LinearLayoutManager(this));
+                    rcv_vocab.setAdapter(myAdapter);
             });
         }).start();
 

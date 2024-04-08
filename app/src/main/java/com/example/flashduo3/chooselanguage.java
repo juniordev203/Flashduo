@@ -36,8 +36,6 @@ public class chooselanguage extends AppCompatActivity {
             if (languageSelected) {
                 Intent intent = new Intent(chooselanguage.this, choosecategory.class);
                 startActivity(intent);
-            } else {
-                Toast.makeText(chooselanguage.this, "Vui lòng chọn ngôn ngữ của bạn", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -67,7 +65,12 @@ public class chooselanguage extends AppCompatActivity {
 
         // Chọn ngôn ngữ được click và cập nhật biến languageSelected
         selectedButton.setBackgroundResource(R.drawable.button_hover_choose);
-        languageSelected = true;
+        if(btn_chinese == selectedButton) {
+            languageSelected = true;
+        }else {
+            languageSelected = false;
+        }
+
     }
 }
 

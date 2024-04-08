@@ -11,36 +11,54 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flashduo3.adapter.CardAdapter;
+import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class main_flashcard extends AppCompatActivity {
+    private ImageView img_exit;
+    private Button btn_theghinho;
+    private Button btn_tuvungcuaban;
+    private Button btn_kiemtra;
+    private Button btn_ghepthe;
+    private RecyclerView rcv_view;
+    private Button btn_card2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_flashcard);
-        Button btn_card1 = findViewById(R.id.btn_card1);
-        Button btn_card2 = findViewById(R.id.btn_card2);
+        initUi();
+        new Thread(() -> {
+            JsonManu jsonmanu = new JsonManu();
+            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+            List<Word> words = db.wordDao().getAll();
+            runOnUiThread(() -> {
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+                CardAdapter cardAdapter = new CardAdapter(words);
+                rcv_view.setLayoutManager(linearLayoutManager);
+                rcv_view.setAdapter(cardAdapter);
+            });
+        }).start();
 
-        btn_card1.setOnClickListener(new View.OnClickListener() {
+        rcv_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Áp dụng animation lật
                 AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.hieu_ung_flashcard);
-                set.setTarget(btn_card1);
+                set.setTarget(rcv_view);
                 set.start();
 
                 set.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
-                        btn_card1.setVisibility(View.GONE);
+                        rcv_view.setVisibility(View.GONE);
                         btn_card2.setVisibility(View.VISIBLE);
                     }
                 });
@@ -58,7 +76,7 @@ public class main_flashcard extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
-                        btn_card1.setVisibility(View.VISIBLE);
+                        rcv_view.setVisibility(View.VISIBLE);
                         btn_card2.setVisibility(View.GONE);
                     }
                 });
@@ -72,10 +90,6 @@ public class main_flashcard extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button btn_theghinho = findViewById(R.id.btn_theghinho);
-        Button btn_tuvungcuaban = findViewById(R.id.btn_tuvungcuaban);
-        Button btn_kiemtra = findViewById(R.id.btn_kiemtra);
-        Button btn_ghepthe = findViewById(R.id.btn_ghepthe);
         btn_theghinho.setOnClickListener(v -> {
             Intent intent = new Intent(main_flashcard.this, main_card.class);
             startActivity(intent);
@@ -85,6 +99,15 @@ public class main_flashcard extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+    private void initUi() {
+        img_exit = findViewById(R.id.img_exit);
+        btn_theghinho = findViewById(R.id.btn_theghinho);
+        btn_tuvungcuaban = findViewById(R.id.btn_tuvungcuaban);
+        btn_kiemtra = findViewById(R.id.btn_kiemtra);
+        btn_ghepthe = findViewById(R.id.btn_ghepthe);
+        btn_card2 = findViewById(R.id.btn_card2);
+        rcv_view = findViewById(R.id.rcv_view);
     }
 
 
