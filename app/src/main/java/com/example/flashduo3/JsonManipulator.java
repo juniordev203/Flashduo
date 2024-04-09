@@ -49,20 +49,4 @@ public class JsonManipulator {
         }
         return json;
     }
-
-    public int getTotalNumberOfObjects(Context context) {
-        String json = loadJsonFromAssets(context);
-
-        if (json == null) {
-            return 0;
-        }
-
-        List<Word> words = parseJsonToList(json);
-        return words.size();
-    }
-
-    private List<Word> parseJsonToList(String json) {
-        Type listType = new TypeToken<List<Word>>() {}.getType();
-        return new Gson().fromJson(json, listType);
-    }
 }
