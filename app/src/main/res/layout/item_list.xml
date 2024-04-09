@@ -15,22 +15,21 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="244dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_chinese"
                 android:layout_width="252dp"
-                android:layout_height="41dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="14dp"
                 android:gravity="left"
                 android:text="chinese"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/tv_meaning"
@@ -41,21 +40,16 @@
                 android:text="meaning"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_chinese" />
+                android:textStyle="italic" />
 
-            <ImageView
-                android:id="@+id/img_meaning"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_chinese"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/china" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_meaning"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:srcCompat="@drawable/china" />
 
     </LinearLayout>
 

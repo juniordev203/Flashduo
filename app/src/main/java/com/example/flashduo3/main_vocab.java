@@ -3,18 +3,24 @@ package com.example.flashduo3;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class main_vocab extends AppCompatActivity {
@@ -28,59 +34,62 @@ public class main_vocab extends AppCompatActivity {
     private Button btn_add;
     private MyAdapter myAdapter;
     private List<Word> words;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_vocab);
         initUi();
+        initRecyclerView();
+        new Thread(() -> {
+            JsonManu jsonmanu = new JsonManu();
+            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+            words = db.wordDao().getAll();
+            runOnUiThread(() -> {
+                myAdapter.setData(words);
+                myAdapter.notifyDataSetChanged();
+            });
+        }).start();
 
-        myAdapter = new MyAdapter(words);
-        myAdapter.setData(words);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rcv_vocab.setLayoutManager(linearLayoutManager);
-        rcv_vocab.setAdapter(myAdapter);
         btn_add.setOnClickListener(v -> {
             String strChinese = edt_chinese.getText().toString().trim();
             String strMeaning = edt_meaning.getText().toString().trim();
             if (strChinese.isEmpty() || strMeaning.isEmpty()) {
                 return;
             }
-            Word word = new Word(strChinese, strMeaning);
-            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
             new Thread(() -> {
-                db.wordDao().insert(word);
-                words = db.wordDao().getAll();
+                Word word = new Word();
+                word.chinese = strChinese;
+                word.meaning = strMeaning;
+                AppDatabase.getDatabase(this).wordDao().insert(word);
+                words.add(word);
+//                AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+//                db.wordDao().insert(word);
+
                 runOnUiThread(() -> {
-                    myAdapter.setData(words);
+                    myAdapter.notifyDataSetChanged();
+                    Toast.makeText(this, "Word added", Toast.LENGTH_SHORT).show();
                     edt_chinese.setText("");
                     edt_meaning.setText("");
+                    hideSoftKeyboard();
                 });
             }).start();
         });
-        new Thread(() -> {
-            JsonManu jsonmanu = new JsonManu();
-            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
-            List<Word> words = db.wordDao().getAll();
-            runOnUiThread(() -> {
-                MyAdapter myAdapter = new MyAdapter(words);
-                    rcv_vocab.setLayoutManager(new LinearLayoutManager(this));
-                    rcv_vocab.setAdapter(myAdapter);
-            });
-        }).start();
 
-        if (img_exit1 != null) {
-            img_exit1.setOnClickListener(v -> startFlashcardActivity());
-        }
-        if (img_play != null) {
-            img_play.setOnClickListener(v -> startFlashcardActivity());
-        }
-        img_undo.setOnClickListener(v -> {
-            hideSoftKeyboard();
-        });
+        img_exit1.setOnClickListener(v -> startFlashcardActivity());
+        img_play.setOnClickListener(v -> startFlashcardActivity());
+        img_undo.setOnClickListener(v -> hideSoftKeyboard());
     }
 
-
+    private void initRecyclerView() {
+        // Khởi tạo RecyclerView, adapter và thiết lập layoutManager
+        RecyclerView rcv_vocab = findViewById(R.id.rcv_vocab);
+        rcv_vocab.setLayoutManager(new LinearLayoutManager(this));
+        words = new ArrayList<>(); // Khởi tạo danh sách dữ liệu
+        myAdapter = new MyAdapter(words); // Khởi tạo adapter với danh sách dữ liệu
+        rcv_vocab.setAdapter(myAdapter); // Gán adapter cho RecyclerView
+    }
     private void initUi() {
         rcv_vocab = findViewById(R.id.rcv_vocab);
         img_exit1 = findViewById(R.id.img_exit1);
@@ -101,8 +110,10 @@ public class main_vocab extends AppCompatActivity {
             ex.printStackTrace();
         }
     }
+
     private void startFlashcardActivity() {
         Intent intent = new Intent(main_vocab.this, main_flashcard.class);
         startActivity(intent);
     }
 }
+
