@@ -1,9 +1,10 @@
 package com.example.flashduo3;
 
+import static com.example.flashduo3.database.AppDatabase.db;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,16 +12,16 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
+import com.example.flashduo3.database.WordDao;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class main_vocab extends AppCompatActivity {
@@ -41,9 +42,7 @@ public class main_vocab extends AppCompatActivity {
         initUi();
         initRecyclerView();
         new Thread(() -> {
-            JsonManu jsonmanu = new JsonManu();
             AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
             words = db.wordDao().getAll();
             runOnUiThread(() -> {
                 myAdapter.setData(words);
@@ -60,13 +59,16 @@ public class main_vocab extends AppCompatActivity {
             }
             new Thread(() -> {
                 Word word = new Word();
+                JsonManipulator jsonManipulator = new JsonManipulator();
                 word.chinese = strChinese;
                 word.meaning = strMeaning;
+                word.picture = "";
+                word.answer = "";
+                word.question = "";
+                word.options = Collections.singletonList("");
+                word.id = db.wordDao().getRowCount() + 1;
                 AppDatabase.getDatabase(this).wordDao().insert(word);
                 words.add(word);
-//                AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-//                db.wordDao().insert(word);
-
                 runOnUiThread(() -> {
                     myAdapter.notifyDataSetChanged();
                     Toast.makeText(this, "Word added", Toast.LENGTH_SHORT).show();
@@ -115,5 +117,8 @@ public class main_vocab extends AppCompatActivity {
         Intent intent = new Intent(main_vocab.this, main_flashcard.class);
         startActivity(intent);
     }
+
+
+
 }
 

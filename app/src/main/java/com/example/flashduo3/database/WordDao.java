@@ -1,5 +1,6 @@
 package com.example.flashduo3.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -34,6 +35,8 @@ public interface WordDao {
     @Query("SELECT id, sentence FROM Word where id = :sentenceId")
     Word getSentenceById(int sentenceId);
 
+    @Query("SELECT COUNT(*) FROM word")
+    int getRowCount();
     @Update
     void update(Word word);
 
