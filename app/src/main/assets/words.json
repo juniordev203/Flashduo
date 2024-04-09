@@ -2,7 +2,7 @@
   {
     "id": 1,
     "chinese": "中文",
-    "meaning": "Chinese",
+    "meaning": "người Trung Quốc",
     "sentence": "中文很落後",
     "question": "Which term in Chinese refers to the Chinese language?",
     "options": [
@@ -17,7 +17,7 @@
   {
     "id": 2,
     "chinese": "方式",
-    "meaning": "path, plan, pattern, tenor, system, method, manner, style, way, guise, fashion, wise, means, shape, how, embodiment, agency, gate, mode, sort",
+    "meaning": "đường",
     "sentence": "我们需要找到一种新的方式来解决这个问题。-  We need to find a new method to solve this problem.",
     "question": "What does the term \"方式\" (Fāngshì) mean in Chinese?",
     "options": [
@@ -32,7 +32,7 @@
   {
     "id": 3,
     "chinese": "校園",
-    "meaning": "schoolyard, campus",
+    "meaning": "khuôn viên đại học",
     "sentence": "我喜欢在校園里散步。 I like to take a walk on the school campus.",
     "question": "",
     "options": [
@@ -47,7 +47,7 @@
   {
     "id": 4,
     "chinese": "社區",
-    "meaning": "community",
+    "meaning": "Cộng đồng",
     "sentence": "在我们的社區中，居民们彼此相互支持。 - In our community, residents support each other.",
     "question": "What does the term \"社區\" (Shèqū) mean in Chinese?",
     "options": [
@@ -62,7 +62,7 @@
   {
     "id": 5,
     "chinese": "積極",
-    "meaning": "positive, active, energetic, vigorous",
+    "meaning": "tích cực",
     "sentence": "她的積極態度讓她成功克服了許多困難。 - Her proactive attitude helped her overcome many difficulties successfully.",
     "question": "What does the term \"積極\" (Jījí) primarily connote in Chinese culture?",
     "options": [
@@ -77,7 +77,7 @@
   {
     "id": 6,
     "chinese": "經營",
-    "meaning": "manage, run, engage in",
+    "meaning": "việc kinh doanh",
     "sentence": "他精明地經營著他的企業，使其持續增長。 - He manages his business shrewdly, ensuring its continuous growth.",
     "question": "What does the term \"經營\" (Jīngyíng) typically refer to in a business context?",
     "options": [
@@ -92,7 +92,7 @@
   {
     "id": 7,
     "chinese": "美麗",
-    "meaning": "beautiful",
+    "meaning": "sắc đẹp",
     "sentence": "她穿著一袭美麗的白色礼服出席晚宴。 - She wore a beautiful white gown to the evening banquet.",
     "question": "What does the term \"美麗\" (Měilì) mean in Chinese?",
     "options": [
@@ -107,7 +107,7 @@
   {
     "id": 8,
     "chinese": "老",
-    "meaning": "old, aged;of long standing, outdated, tough, overgrown, dark (of colors)",
+    "meaning": "cũ",
     "sentence": "这个老人在公园里散步。 - The old man is walking in the park.",
     "question": "What does the term \"老\" (Lǎo) commonly indicate in Chinese?",
     "options": [
@@ -122,7 +122,7 @@
   {
     "id": 9,
     "chinese": "行政",
-    "meaning": "administration",
+    "meaning": "hành chính",
     "sentence": "行政部门负责处理公司的日常管理事务。 - The administration department is responsible for handling the company's daily management affairs.",
     "question": "What does the term \"行政\" (Xíngzhèng) typically refer to in an organizational context?",
     "options": [
@@ -137,7 +137,7 @@
   {
     "id": 10,
     "chinese": "製作",
-    "meaning": "make, manufacture",
+    "meaning": "làm, chế tạo",
     "sentence": "他喜歡製作手工藝品作為禮物送給朋友。 - He enjoys making handmade crafts as gifts for friends.",
     "question": "What does the term \"製作\" (Zhìzuò) refer to in Chinese?",
     "options": [

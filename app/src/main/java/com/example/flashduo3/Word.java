@@ -11,7 +11,6 @@ import java.util.List;
 public class Word {
     @PrimaryKey
     public int id;
-
     @ColumnInfo(name = "chinese")
     public String chinese;
 
@@ -23,7 +22,6 @@ public class Word {
 
     @ColumnInfo(name = "question")
     public String question;
-
     @ColumnInfo(name = "options")
     public List<String> options;
 
@@ -33,4 +31,8 @@ public class Word {
     @ColumnInfo(name = "picture")
     public String picture;
 
+//    public Word(String strChinese, String strMeaning) {
+//        this.chinese = strChinese;
+//        this.meaning = strMeaning;
+//    }
 }
