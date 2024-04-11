@@ -59,7 +59,6 @@ public class main_vocab extends AppCompatActivity {
             }
             new Thread(() -> {
                 Word word = new Word();
-                JsonManipulator jsonManipulator = new JsonManipulator();
                 word.chinese = strChinese;
                 word.meaning = strMeaning;
                 word.picture = "";
@@ -67,7 +66,7 @@ public class main_vocab extends AppCompatActivity {
                 word.question = "";
                 word.options = Collections.singletonList("");
                 word.id = db.wordDao().getRowCount() + 1;
-                AppDatabase.getDatabase(this).wordDao().insert(word);
+                db.wordDao().insert(word);
                 words.add(word);
                 runOnUiThread(() -> {
                     myAdapter.notifyDataSetChanged();
@@ -76,6 +75,7 @@ public class main_vocab extends AppCompatActivity {
                     edt_meaning.setText("");
                     hideSoftKeyboard();
                 });
+                db.wordDao().getAll();
             }).start();
         });
 

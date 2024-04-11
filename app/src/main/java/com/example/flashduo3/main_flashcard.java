@@ -33,9 +33,7 @@ public class main_flashcard extends AppCompatActivity {
         setContentView(R.layout.main_flashcard);
         initUi();
         new Thread(() -> {
-            JsonManipulator jsonmanu = new JsonManipulator();
             AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
             List<Word> words = db.wordDao().getAll();
             runOnUiThread(() -> {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
