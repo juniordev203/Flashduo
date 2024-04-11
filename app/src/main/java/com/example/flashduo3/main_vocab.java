@@ -18,7 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
+
 import com.google.gson.Gson;
+
+import com.example.flashduo3.database.WordDao;
+
 
 
 import java.io.FileOutputStream;
@@ -126,5 +130,8 @@ public class main_vocab extends AppCompatActivity {
         Intent intent = new Intent(main_vocab.this, main_flashcard.class);
         startActivity(intent);
     }
+
+
+
 }
 

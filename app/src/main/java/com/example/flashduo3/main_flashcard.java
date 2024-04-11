@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.adapter.CardAdapter;
-import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
 
 import java.util.List;
@@ -34,9 +33,7 @@ public class main_flashcard extends AppCompatActivity {
         setContentView(R.layout.main_flashcard);
         initUi();
         new Thread(() -> {
-            JsonManu jsonmanu = new JsonManu();
             AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
             List<Word> words = db.wordDao().getAll();
             runOnUiThread(() -> {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
