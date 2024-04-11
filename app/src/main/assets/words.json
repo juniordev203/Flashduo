@@ -12,13 +12,13 @@
       "한국어 (Hangugeo)"
     ],
     "answer": "中文 (Zhōngwén)",
-    "picture": "chinese"
+    "picture": "/drawable/french.png"
   },
   {
     "id": 2,
     "chinese": "方式",
-    "meaning": "đường",
-    "sentence": "我们需要找到一种新的方式来解决这个问题。-  We need to find a new method to solve this problem.",
+    "meaning": "phương pháp",
+    "sentence": "我们需要找到一种新的方式来解决这个问题。- Chúng ta cần tìm một phương pháp mới để giải quyết vấn đề này",
     "question": "What does the term \"方式\" (Fāngshì) mean in Chinese?",
     "options": [
       "Method",

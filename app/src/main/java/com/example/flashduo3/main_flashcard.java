@@ -40,7 +40,7 @@ public class main_flashcard extends AppCompatActivity {
             List<Word> words = db.wordDao().getAll();
             runOnUiThread(() -> {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-                CardAdapter cardAdapter = new CardAdapter(words);
+                CardAdapter cardAdapter = new CardAdapter(this,words);
                 rcv_view.setLayoutManager(linearLayoutManager);
                 rcv_view.setAdapter(cardAdapter);
             });

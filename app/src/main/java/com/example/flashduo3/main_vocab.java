@@ -3,7 +3,6 @@ package com.example.flashduo3;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,12 +23,9 @@ import java.util.List;
 public class main_vocab extends AppCompatActivity {
     public RecyclerView rcv_vocab;
     private ImageView img_exit1;
-    private ImageView img_plus;
-    private ImageView img_undo;
-    private ImageView img_play;
-    private ImageView img_addimage;
     private EditText edt_chinese, edt_meaning;
     private Button btn_add;
+    private ImageView img_addimage;
     private MyAdapter myAdapter;
     private List<Word> words;
 
@@ -64,9 +58,6 @@ public class main_vocab extends AppCompatActivity {
                 word.meaning = strMeaning;
                 AppDatabase.getDatabase(this).wordDao().insert(word);
                 words.add(word);
-//                AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-//                db.wordDao().insert(word);
-
                 runOnUiThread(() -> {
                     myAdapter.notifyDataSetChanged();
                     Toast.makeText(this, "Word added", Toast.LENGTH_SHORT).show();
@@ -78,8 +69,6 @@ public class main_vocab extends AppCompatActivity {
         });
 
         img_exit1.setOnClickListener(v -> startFlashcardActivity());
-        img_play.setOnClickListener(v -> startFlashcardActivity());
-        img_undo.setOnClickListener(v -> hideSoftKeyboard());
     }
 
     private void initRecyclerView() {
@@ -93,9 +82,6 @@ public class main_vocab extends AppCompatActivity {
     private void initUi() {
         rcv_vocab = findViewById(R.id.rcv_vocab);
         img_exit1 = findViewById(R.id.img_exit1);
-        img_plus = findViewById(R.id.img_plus);
-        img_undo = findViewById(R.id.img_undo);
-        img_play = findViewById(R.id.img_play);
         edt_chinese = findViewById(R.id.edt_chinese);
         edt_meaning = findViewById(R.id.edt_meaning);
         img_addimage = findViewById(R.id.img_addimage);

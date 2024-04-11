@@ -1,8 +1,15 @@
 package com.example.flashduo3.adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +22,10 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
     private List<Word> words;
+    private Context context;
 
-    public CardAdapter(List<Word> words) {
+    public CardAdapter(Context context,List<Word> words) {
+        this.context = context;
         this.words = words;
     }
     private void setData(List<Word> words) {
@@ -33,26 +42,44 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull CardAdapter.MyViewHolder holder, int position) {
-        Word word = words.get(position);
+        final Word word = words.get(position);
         if (word == null) {
             return;
         }
         holder.tvChinese.setText(word.chinese);
         holder.tvMeaning.setText(word.meaning);
     }
-
     @Override
     public int getItemCount() {
         return words.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+        private LinearLayout layoutCardView;
         private final TextView tvChinese;
         private final TextView tvMeaning;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            layoutCardView = itemView.findViewById(R.id.layout_cardView);
             tvChinese = itemView.findViewById(R.id.tv_chinese);
             tvMeaning = itemView.findViewById(R.id.tv_meaning);
+
+            layoutCardView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                LayoutInflater inflater = LayoutInflater.from(context);
+                View dialogView = inflater.inflate(R.layout.alertdialog_detail_card, null);
+                TextView defTextView = dialogView.findViewById(R.id.tv_detail_chinese);
+                TextView ipaTextView = dialogView.findViewById(R.id.tv_detail_meaning);
+                defTextView.setText(words.get(position).meaning);
+                ipaTextView.setText(words.get(position).sentence);
+                builder.setView(dialogView);
+                builder.setCancelable(false);
+                builder.setPositiveButton("Đóng", (dialog, which) -> dialog.dismiss());
+                builder.setTitle(words.get(position).chinese);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            });
         }
     }
 }

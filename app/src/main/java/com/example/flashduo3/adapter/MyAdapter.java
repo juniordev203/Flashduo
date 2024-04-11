@@ -1,8 +1,10 @@
 package com.example.flashduo3.adapter;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.R;
 import com.example.flashduo3.Word;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{

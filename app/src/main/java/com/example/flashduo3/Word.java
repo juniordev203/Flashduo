@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 import java.util.List;
 
 @Entity
-public class Word {
+public class Word implements java.io.Serializable{
     @PrimaryKey
     public int id;
     @ColumnInfo(name = "chinese")
@@ -31,8 +31,4 @@ public class Word {
     @ColumnInfo(name = "picture")
     public String picture;
 
-//    public Word(String strChinese, String strMeaning) {
-//        this.chinese = strChinese;
-//        this.meaning = strMeaning;
-//    }
 }

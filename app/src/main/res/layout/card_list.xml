@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardView"
+    android:id="@+id/layout_cardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/button_card"
     android:elevation="8dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginRight="5dp">
 
     <FrameLayout
         android:layout_width="350dp"
@@ -19,21 +20,29 @@
             android:id="@+id/tv_chinese"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="62dp"
             android:gravity="center"
-            android:rotation="0"
+            android:layout_gravity="center"
             android:text="TextView"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/tv_meaning"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="122dp"
-            android:gravity="center"
             android:text="TextView"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/img_zoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/zoom" />
 
     </FrameLayout>
+
 </LinearLayout>

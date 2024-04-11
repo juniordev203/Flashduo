@@ -26,33 +26,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus" />
 
-    <ImageView
-        android:id="@+id/img_undo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/undo" />
-
-    <ImageView
-        android:id="@+id/img_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/play" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="100dp"
         android:background="@color/backgound_color"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,20 +44,20 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:ems="10"
+            android:hint="Nhập từ mới ..."
             android:inputType="text"
             android:textColor="@color/white"
-            android:hint="Nhập từ mới ..."
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/edt_meaning"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:ems="10"
+            android:hint="Nhập nghĩa ..."
             android:inputType="text"
             android:textColor="@color/white"
-            android:hint="Nhập nghĩa ..."
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -112,7 +91,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_vocab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp" />
     </LinearLayout>
 
