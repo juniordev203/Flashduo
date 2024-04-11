@@ -1,6 +1,9 @@
 package com.example.flashduo3;
 
+import static com.example.flashduo3.database.AppDatabase.db;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
@@ -15,9 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.adapter.MyAdapter;
 import com.example.flashduo3.database.AppDatabase;
+import com.google.gson.Gson;
 
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class main_vocab extends AppCompatActivity {
@@ -35,9 +43,7 @@ public class main_vocab extends AppCompatActivity {
         initUi();
         initRecyclerView();
         new Thread(() -> {
-            JsonManu jsonmanu = new JsonManu();
             AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-            jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
             words = db.wordDao().getAll();
             runOnUiThread(() -> {
                 myAdapter.setData(words);
@@ -56,7 +62,12 @@ public class main_vocab extends AppCompatActivity {
                 Word word = new Word();
                 word.chinese = strChinese;
                 word.meaning = strMeaning;
-                AppDatabase.getDatabase(this).wordDao().insert(word);
+                word.picture = "";
+                word.answer = "";
+                word.question = "";
+                word.options = Collections.singletonList("");
+                word.id = db.wordDao().getRowCount() + 1;
+                db.wordDao().insert(word);
                 words.add(word);
                 runOnUiThread(() -> {
                     myAdapter.notifyDataSetChanged();
@@ -64,13 +75,27 @@ public class main_vocab extends AppCompatActivity {
                     edt_chinese.setText("");
                     edt_meaning.setText("");
                     hideSoftKeyboard();
+                    updateJsonFile();
                 });
+                db.wordDao().getAll();
             }).start();
         });
 
         img_exit1.setOnClickListener(v -> startFlashcardActivity());
     }
-
+    private void updateJsonFile() {
+        new Thread(() -> {
+            Gson gson = new Gson();
+            String json = gson.toJson(words); // Chuyển danh sách từ thành chuỗi JSON
+            try {
+                FileOutputStream outputStream = openFileOutput("words.json", Context.MODE_PRIVATE);
+                outputStream.write(json.getBytes());
+                outputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
     private void initRecyclerView() {
         // Khởi tạo RecyclerView, adapter và thiết lập layoutManager
         RecyclerView rcv_vocab = findViewById(R.id.rcv_vocab);

@@ -34,6 +34,9 @@ public interface WordDao {
     @Query("SELECT id, sentence FROM Word where id = :sentenceId")
     Word getSentenceById(int sentenceId);
 
+    @Query("SELECT COUNT(*) FROM word")
+    int getRowCount();
+
     @Update
     void update(Word word);
 
