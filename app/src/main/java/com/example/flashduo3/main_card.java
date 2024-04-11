@@ -6,10 +6,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flashduo3.adapter.CardAdapter;
+import com.example.flashduo3.adapter.MaincardAdapter;
+import com.example.flashduo3.database.AppDatabase;
+
+import java.util.List;
+
 public class main_card extends AppCompatActivity{
-    private RecyclerView recyclerView;
+    private RecyclerView rcv_vocab;
     private ImageView img_exit1;
     private ImageView img_plus;
     private ImageView img_undo;
@@ -20,14 +27,29 @@ public class main_card extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_card);
         initUi();
+
+        new Thread(() -> {
+            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+            List<Word> words = db.wordDao().getAll();
+            runOnUiThread(() -> {
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+                MaincardAdapter maincardAdapter = new MaincardAdapter(this,words);
+                rcv_vocab.setLayoutManager(linearLayoutManager);
+                rcv_vocab.setAdapter(maincardAdapter);
+            });
+        }).start();
+
         img_exit1.setOnClickListener(v -> {
-            // Xử lý sự kiện khi người dùng click vào button
             Intent intent = new Intent(main_card.this, main_flashcard.class);
+            startActivity(intent);
+        });
+        img_plus.setOnClickListener(v -> {
+            Intent intent = new Intent(main_card.this, main_vocab.class);
             startActivity(intent);
         });
     }
     private void initUi() {
-        recyclerView = findViewById(R.id.rcv_vocab);
+        rcv_vocab = findViewById(R.id.rcv_vocab);
         img_exit1 = findViewById(R.id.img_exit1);
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);
