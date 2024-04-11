@@ -34,4 +34,5 @@ public abstract class AppDatabase extends RoomDatabase {
         return db;
     }
     public abstract WordDao wordDao();
+
 }
