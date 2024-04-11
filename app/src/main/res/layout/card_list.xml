@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cardView"
+    android:id="@+id/tv_meaning"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -17,7 +17,7 @@
         android:background="@drawable/button_card">
 
         <TextView
-            android:id="@+id/tv_chinese"
+            android:id="@+id/tv_chinese_mainvocab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

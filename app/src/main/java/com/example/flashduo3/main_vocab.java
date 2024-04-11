@@ -86,6 +86,8 @@ public class main_vocab extends AppCompatActivity {
         });
 
         img_exit1.setOnClickListener(v -> startFlashcardActivity());
+
+
     }
     private void updateJsonFile() {
         new Thread(() -> {

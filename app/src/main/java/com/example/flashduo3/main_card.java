@@ -1,15 +1,19 @@
 package com.example.flashduo3;
 
+import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flashduo3.adapter.CardAdapter;
+//import com.example.flashduo3.adapter.MaincardAdapter;
 import com.example.flashduo3.adapter.MaincardAdapter;
 import com.example.flashduo3.database.AppDatabase;
 
@@ -22,6 +26,7 @@ public class main_card extends AppCompatActivity{
     private ImageView img_undo;
     private ImageView img_play;
     private ImageView img_flip;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,12 @@ public class main_card extends AppCompatActivity{
         });
         img_plus.setOnClickListener(v -> {
             Intent intent = new Intent(main_card.this, main_vocab.class);
+            startActivity(intent);
+        });
+
+
+        img_flip.setOnClickListener(v -> {
+            Intent intent = new Intent(main_card.this, main_flashcard.class);
             startActivity(intent);
         });
     }

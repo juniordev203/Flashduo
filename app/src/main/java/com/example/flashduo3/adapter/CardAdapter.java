@@ -1,11 +1,7 @@
 package com.example.flashduo3.adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,8 +56,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         private final TextView tvMeaning;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            layoutCardView = itemView.findViewById(R.id.layout_cardView);
-            tvChinese = itemView.findViewById(R.id.tv_chinese);
+            layoutCardView = itemView.findViewById(R.id.tv_meaning);
+            tvChinese = itemView.findViewById(R.id.tv_chinese_mainvocab);
             tvMeaning = itemView.findViewById(R.id.tv_meaning);
 
             layoutCardView.setOnClickListener(v -> {

@@ -14,7 +14,6 @@ import com.example.flashduo3.database.AppDatabase;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
