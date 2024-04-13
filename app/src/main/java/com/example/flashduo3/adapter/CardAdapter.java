@@ -43,7 +43,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
             return;
         }
         holder.tvChinese.setText(word.chinese);
-        holder.tvMeaning.setText(word.meaning);
     }
     @Override
     public int getItemCount() {

@@ -27,13 +27,6 @@
             android:textColor="@color/white"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/tv_meaning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@color/white" />
-
         <ImageView
             android:id="@+id/img_zoom"
             android:layout_width="wrap_content"
