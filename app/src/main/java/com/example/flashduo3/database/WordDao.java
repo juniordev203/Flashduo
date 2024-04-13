@@ -20,7 +20,7 @@ public interface WordDao {
 
     @Insert
     void insertAll(List<Word> words);
-    @Query("SELECT id, chinese, meaning, sentence FROM Word")
+    @Query("SELECT id, chinese, meaning, sentence, picture FROM Word")
     List<Word> getAll();
 
     @Query("Select * FROM Word where id = :wordId")

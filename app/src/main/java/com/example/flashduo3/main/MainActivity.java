@@ -54,32 +54,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);
             startActivity(intent);
         });
-
-//        img_language_vietnam.setOnClickListener(v -> {
-//            context = LocaleHelper.setLocale(MainActivity.this, "vi");
-//            resources = context.getResources();
-//            textView2.setText(resources.getString(R.string.h_c_ng_n_ng_m_i_c_ng_flashduo));
-//            btnbatdau.setText(resources.getString(R.string.text_batdau));
-//        });
-//        img_language_english.setOnClickListener(v -> {
-//            context = LocaleHelper.setLocale(MainActivity.this, "en");
-//            resources = context.getResources();
-//            textView2.setText(resources.getString(R.string.h_c_ng_n_ng_m_i_c_ng_flashduo));
-//            btnbatdau.setText(resources.getString(R.string.text_batdau));
-//
-//        });
-//        img_language_chinese.setOnClickListener(v -> {
-//            setLanguage("zh");
-//            recreate();
-//        });
-
-        //languageApp
     }
-//    private void setLanguage(String language) {
-//        Resources res = getResources();
-//        Configuration conf = res.getConfiguration();
-//        Locale locale = new Locale(language);
-//        conf.setLocale(locale);
-//        res.updateConfiguration(conf, res.getDisplayMetrics());
-//    }
 }

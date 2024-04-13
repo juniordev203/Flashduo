@@ -1,17 +1,30 @@
 package com.example.flashduo3;
 
+import static android.content.ContentValues.TAG;
 import static com.example.flashduo3.database.AppDatabase.db;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +46,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class main_vocab extends AppCompatActivity {
+    public static final String TAG = "main_vocab";
+    private static final int MY_REQUEST_CODE = 1;
+    private String selectedImagePath;
     public RecyclerView rcv_vocab;
     private ImageView img_exit1;
     private EditText edt_chinese, edt_meaning;
@@ -41,6 +57,44 @@ public class main_vocab extends AppCompatActivity {
     private MyAdapter myAdapter;
     private List<Word> words;
 
+    private final ActivityResultLauncher  <Intent> mActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    Log.e(TAG, "onActivityResult: ");
+                    if(result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        if(data == null) {
+                            return;
+                        }
+                        Uri uri = data.getData();
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                            img_addimage.setImageBitmap(bitmap);
+                            selectedImagePath = getPathFromUri(uri);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                private String getPathFromUri(Uri uri) {
+                    String path = null;
+                    String[] projection = {MediaStore.Images.Media.DATA};
+                    Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+                    if (cursor != null) {
+                        int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                        cursor.moveToFirst();
+                        path = cursor.getString(columnIndex);
+                        cursor.close();
+                    }
+                    return path;
+                }
+            });
+
+
+    @SuppressLint("NotifyDataSetChanged")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_vocab);
@@ -54,11 +108,14 @@ public class main_vocab extends AppCompatActivity {
                 myAdapter.notifyDataSetChanged();
             });
         }).start();
-
+        img_addimage.setOnClickListener(v -> {
+            onClickRequestPermission();
+        });
 
         btn_add.setOnClickListener(v -> {
             String strChinese = edt_chinese.getText().toString().trim();
             String strMeaning = edt_meaning.getText().toString().trim();
+            String strPicture = selectedImagePath;
             if (strChinese.isEmpty() || strMeaning.isEmpty()) {
                 return;
             }
@@ -66,7 +123,7 @@ public class main_vocab extends AppCompatActivity {
                 Word word = new Word();
                 word.chinese = strChinese;
                 word.meaning = strMeaning;
-                word.picture = "";
+                word.picture = strPicture;
                 word.answer = "";
                 word.question = "";
                 word.options = Collections.singletonList("");
@@ -89,6 +146,34 @@ public class main_vocab extends AppCompatActivity {
 
 
     }
+
+    private void onClickRequestPermission() {
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            openGallery();
+            return;
+        }
+        if(checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            openGallery();
+        }else {
+            String [] permissions = {android.Manifest.permission.READ_EXTERNAL_STORAGE};
+            requestPermissions(permissions, MY_REQUEST_CODE);
+        }
+    }
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            openGallery();
+        } else {
+            Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void openGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        mActivityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));
+    }
+
     private void updateJsonFile() {
         new Thread(() -> {
             Gson gson = new Gson();
@@ -132,8 +217,5 @@ public class main_vocab extends AppCompatActivity {
         Intent intent = new Intent(main_vocab.this, main_flashcard.class);
         startActivity(intent);
     }
-
-
-
 }
 

@@ -44,6 +44,10 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("com.google.code.gson:gson:2.8.6")
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
 
 }

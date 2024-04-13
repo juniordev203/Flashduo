@@ -2,9 +2,11 @@ package com.example.flashduo3.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,12 +53,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvChinese;
-        private final TextView tvMeaning;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             LinearLayout layoutCardView = itemView.findViewById(R.id.layout_cardlist);
             tvChinese = itemView.findViewById(R.id.tv_chinese_mainvocab);
-            tvMeaning = itemView.findViewById(R.id.tv_meaning);
 
             layoutCardView.setOnClickListener(v -> {
                 int position = getAdapterPosition();

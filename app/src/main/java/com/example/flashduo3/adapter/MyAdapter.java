@@ -1,13 +1,16 @@
 package com.example.flashduo3.adapter;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.flashduo3.R;
 import com.example.flashduo3.Word;
 
@@ -39,6 +42,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         }
         holder.tvChinese.setText(word.chinese);
         holder.tvMeaning.setText(word.meaning);
+        if (word.picture == null) {
+            return;
+        }
+        Glide.with(holder.itemView.getContext())
+                .load(Uri.parse(word.picture))
+                .into(holder.imgGallery);
     }
 
     @Override
@@ -49,10 +58,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvChinese;
         private final TextView tvMeaning;
+        private final ImageView imgGallery;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvChinese = itemView.findViewById(R.id.tv_chinese_mainvocab);
             tvMeaning = itemView.findViewById(R.id.tv_meaning);
+            imgGallery = itemView.findViewById(R.id.img_gallery);
         }
     }
 }

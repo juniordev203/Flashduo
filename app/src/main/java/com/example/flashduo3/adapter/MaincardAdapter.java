@@ -6,6 +6,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.content.ClipData;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.flashduo3.R;
 import com.example.flashduo3.Word;
 import com.example.flashduo3.main_card;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyViewHolder>{
@@ -45,32 +50,36 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
             return;
         }
         holder.tvChinese.setText(word.chinese);
+        holder.tvMeaning.setText(word.meaning);
+        holder.tvSentence.setText(word.sentence);
+        holder.img_meaning.setImageURI(Uri.parse(word.picture));
 
-        holder.layoutcard.setOnClickListener(new View.OnClickListener() {
-            public ImageView tv_chinese_mainvocab;
-            private TextView tv_meaning_mainvocab;
-            private TextView tv_sentence_mainvocab;
-            @Override
-            public void onClick(View v) {
-                onClickAnimation(holder);
-            }
-        });
+
+//        holder.layoutcard.setOnClickListener(new View.OnClickListener() {
+//            public ImageView tv_chinese_mainvocab;
+//            private TextView tv_meaning_mainvocab;
+//            private TextView tv_sentence_mainvocab;
+//            @Override
+//            public void onClick(View v) {
+//                onClickAnimation(holder);
+//            }
+//        });
     }
 
-    private void onClickAnimation(MaincardAdapter.MyViewHolder holder) {
-        LinearLayout layout_card = holder.layoutcard;
-        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(context.getApplicationContext(), R.animator.hieu_ung_flashcard);
-        set.setTarget(layout_card);
-        set.start();
-        set.addListener(new AnimatorListenerAdapter() {
-            TextView tv_chinese = holder.tvChinese;
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                tv_chinese.setVisibility(View.VISIBLE);
-            }
-        });
-    }
+//    private void onClickAnimation(MaincardAdapter.MyViewHolder holder) {
+//        LinearLayout layout_card = holder.layoutcard;
+//        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(context.getApplicationContext(), R.animator.hieu_ung_flashcard);
+//        set.setTarget(layout_card);
+//        set.start();
+//        set.addListener(new AnimatorListenerAdapter() {
+//            TextView tv_chinese = holder.tvChinese;
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//                super.onAnimationEnd(animation);
+//                tv_chinese.setVisibility(View.VISIBLE);
+//            }
+//        });
+//    }
 
     @Override
     public int getItemCount() {
@@ -80,12 +89,17 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvChinese;
         private final TextView tvMeaning;
+        private TextView tvSentence;
+        private ImageView img_meaning;
         private LinearLayout layoutcard;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvChinese = itemView.findViewById(R.id.tv_chinese_mainvocab);
-            tvMeaning = itemView.findViewById(R.id.tv_meaning);
+            tvMeaning = itemView.findViewById(R.id.tv_meaning_mainvocab);
+            tvSentence = itemView.findViewById(R.id.tv_sentence_mainvocab);
+            img_meaning = itemView.findViewById(R.id.img_meaning);
             layoutcard = itemView.findViewById(R.id.layout_card);
+
         }
     }
 }
