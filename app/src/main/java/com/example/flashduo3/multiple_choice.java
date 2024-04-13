@@ -1,51 +1,51 @@
 package com.example.flashduo3;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.flashduo3.R;
-import com.example.flashduo3.database.AppDatabase;
+import com.example.flashduo3.database.AppDatabaseForQuestion;
 import com.example.flashduo3.database.WordDao;
 import com.example.flashduo3.Word;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class multiple_choice extends AppCompatActivity{
-    private TextView questionTextView;
+    private TextView questionTextView, questionCount;
     private Button btn_A, btn_B, btn_C, btn_D;
-    private WordDao wordDao;
-    private List<Word> questions;
+    private ImageView btn_next, btn_back, btn_exit;
+
+    private int currentSelectedButtonId = -1;
+
+    private List<Word> questions = new ArrayList<>();
     private int currentQuestionIndex = 0;
     private int correctAnswersCount = 0;
 
-    private int currentSelectedButtonId;
-
-    private static final int DELAY_TIME = 1000;
+//    private static final int DELAY_TIME = 0;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mulitple_choice);
+        initUI();
 
-        //khoi tao cac thanh phan dao dien can load database
-        questionTextView = findViewById(R.id.questionTextView);
-        btn_A = findViewById(R.id.btn_A);
-        btn_B = findViewById(R.id.btn_B);
-        btn_C = findViewById(R.id.btn_C);
-        btn_D = findViewById(R.id.btn_D);
-
-        //khoi tao WordDao
-        wordDao = AppDatabase.getDatabase(this).wordDao();
-
-        //load cau hoi tu database
-        loadQuestion();
-        //hien thi cau hoi dau tien
-        displayCurrentQuestion();
+        new Thread(() -> {
+            AppDatabaseForQuestion db = AppDatabaseForQuestion.getDatabase(getApplicationContext());
+            questions.addAll(db.wordDao().getAllQuestion());
+            runOnUiThread(() -> displayCurrentQuestion(questions.get(currentQuestionIndex)));
+        }).start();
 
         btn_A.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,44 +78,82 @@ public class multiple_choice extends AppCompatActivity{
                 checkAnswer(btn_D.getText().toString());
             }
         });
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.size()) {
+                    displayCurrentQuestion(questions.get(currentQuestionIndex));
+                } else {
+                    showResult();
+                }
+            }
+
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    displayCurrentQuestion(questions.get(currentQuestionIndex));
+                } else {
+                    backToChooseCategory();
+                }
+            }
+        });
+
+        btn_exit.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backToChooseCategory();
+            }
+        }));
+
     }
 
-    private void loadQuestion(){
-        questions = wordDao.getAll();
-    }
+    private void displayCurrentQuestion(Word question) {
+        resetButtonDrawables(); // Đặt lại drawable của các nút ABCD
+        Type type = new TypeToken<List<String>>() {
+        }.getType();
+        List<String> options = question.getOptions();
+        btn_A.setVisibility(View.VISIBLE);
+        btn_B.setVisibility(View.VISIBLE);
+        btn_C.setVisibility(View.VISIBLE);
+        btn_D.setVisibility(View.VISIBLE);
 
-    private void displayCurrentQuestion() {
-        if (currentQuestionIndex < questions.size()) {
-            Word currentQuestion = questions.get(currentQuestionIndex);
-            questionTextView.setText(currentQuestion.question);
-            List<String> options = currentQuestion.options;
-            btn_A.setText(options.get(0));
-            btn_B.setText(options.get(1));
-            btn_C.setText(options.get(2));
-            btn_D.setText(options.get(3));
-        }
+        questionTextView.setText(question.question);
+        questionCount.setText(question.id + "/10");
+        btn_A.setText(options.get(0));
+        btn_B.setText(options.get(1));
+        btn_C.setText(options.get(2));
+        btn_D.setText(options.get(3));
     }
 
     private void checkAnswer(String selectedAnswer){
         Word currentQuestion = questions.get(currentQuestionIndex);
-        String correctAnswer = currentQuestion.answer;
+        String correctAnswer = currentQuestion.getAnswer();
         boolean isCorrect = selectedAnswer.equals(correctAnswer);
 
-        if (isCorrect){
+        if (isCorrect) {
             showCorrectAnswer();
             correctAnswersCount++;
-        }else{
+        } else {
             showWrongAnswer(selectedAnswer, correctAnswer);
         }
 
-        currentQuestionIndex++;
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                displayCurrentQuestion();
-            }
-        }, DELAY_TIME);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (currentQuestionIndex < questions.size() - 1) {
+//                    currentQuestionIndex++;
+//                    displayCurrentQuestion(questions.get(currentQuestionIndex));
+//                } else {
+//                    showResult();
+//                }
+//            }
+//        }, DELAY_TIME);
     }
 
     private void showCorrectAnswer() {
@@ -137,6 +175,41 @@ public class multiple_choice extends AppCompatActivity{
         if (correctButton != null){
             correctButton.setBackgroundResource(R.drawable.button_right);
         }
+    }
+
+    private void resetButtonDrawables() {
+        btn_A.setBackgroundResource(R.drawable.languagebtn); // Đặt lại drawable cho nút A
+        btn_B.setBackgroundResource(R.drawable.languagebtn); // Đặt lại drawable cho nút B
+        btn_C.setBackgroundResource(R.drawable.languagebtn); // Đặt lại drawable cho nút C
+        btn_D.setBackgroundResource(R.drawable.languagebtn); // Đặt lại drawable cho nút D
+    }
+
+    private void backToChooseCategory() {
+        // Tạo Intent để chuyển đến màn hình choosecategory
+        Intent intent = new Intent(this, choosecategory.class);
+        startActivity(intent); // Khởi chạy màn hình mới
+        finish(); // Kết thúc màn hình hiện tại để ngăn người dùng quay lại nó bằng nút back
+    }
+
+    private void showResult(){
+        Intent intent = new Intent(this, mulitple_choice_result.class);
+        intent.putExtra("CORRECT_ANSWERS_COUNT", correctAnswersCount);
+        startActivity(intent); // Khởi chạy màn hình mới
+        finish(); // Kết thúc màn hình hiện tại để ngăn người dùng quay lại nó bằng nút back
+    }
+
+    private void initUI(){
+        //khoi tao cac thanh phan dao dien can load database
+        questionTextView = findViewById(R.id.questionTextView);
+        questionCount = findViewById(R.id.questionCount);
+        btn_A = findViewById(R.id.btn_A);
+        btn_B = findViewById(R.id.btn_B);
+        btn_C = findViewById(R.id.btn_C);
+        btn_D = findViewById(R.id.btn_D);
+        btn_next = findViewById(R.id.img_play);
+        btn_back = findViewById(R.id.img_undo);
+        btn_exit = findViewById(R.id.img_exit);
+
     }
 }
 
