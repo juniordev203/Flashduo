@@ -45,7 +45,6 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
             return;
         }
         holder.tvChinese.setText(word.chinese);
-        holder.tvMeaning.setText(word.meaning);
 
         holder.layoutcard.setOnClickListener(new View.OnClickListener() {
             public ImageView tv_chinese_mainvocab;
@@ -53,7 +52,6 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
             private TextView tv_sentence_mainvocab;
             @Override
             public void onClick(View v) {
-
                 onClickAnimation(holder);
             }
         });
@@ -66,12 +64,10 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
         set.start();
         set.addListener(new AnimatorListenerAdapter() {
             TextView tv_chinese = holder.tvChinese;
-            TextView tv_meaning = holder.tvMeaning;
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 tv_chinese.setVisibility(View.VISIBLE);
-                tv_meaning.setVisibility(View.GONE);
             }
         });
     }

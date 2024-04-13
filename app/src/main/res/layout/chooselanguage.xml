@@ -10,14 +10,14 @@
         android:id="@+id/img_exit1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_chooselanguage"
+        app:layout_constraintEnd_toStartOf="@+id/tv_chooselanguage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/tv_chooselanguage"
         app:srcCompat="@drawable/btnexit" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_chooselanguage"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -27,7 +27,7 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/tv_chooselanguage">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_chinese"

@@ -1,9 +1,12 @@
 package com.example.flashduo3;
 
+import static com.example.flashduo3.LocaleHelper.getSelectedLanguage;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,8 @@ public class chooselanguage extends AppCompatActivity {
     private Button btn_russian;
     private Button btn_spain;
 
+    private TextView tv_chooselanguage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,7 @@ public class chooselanguage extends AppCompatActivity {
         btn_russian = findViewById(R.id.btn_russian);
         btn_spain = findViewById(R.id.btn_spain);
         Button btn_continue = findViewById(R.id.btn_continue);
+        tv_chooselanguage = findViewById(R.id.tv_chooselanguage);
 
         btn_continue.setOnClickListener(v -> {
             if (languageSelected) {

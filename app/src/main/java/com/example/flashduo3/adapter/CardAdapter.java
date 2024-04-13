@@ -18,7 +18,7 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
     private List<Word> words;
-    private Context context;
+    private final Context context;
 
     public CardAdapter(Context context,List<Word> words) {
         this.context = context;
@@ -51,12 +51,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout layoutCardView;
         private final TextView tvChinese;
         private final TextView tvMeaning;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            layoutCardView = itemView.findViewById(R.id.tv_meaning);
+            LinearLayout layoutCardView = itemView.findViewById(R.id.layout_cardlist);
             tvChinese = itemView.findViewById(R.id.tv_chinese_mainvocab);
             tvMeaning = itemView.findViewById(R.id.tv_meaning);
 

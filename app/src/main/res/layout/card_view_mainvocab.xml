@@ -6,7 +6,7 @@
     android:layout_width="380dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginRight="5dp"
+    android:layout_marginEnd="5dp"
     android:background="@drawable/button_card"
     android:elevation="8dp"
     android:orientation="vertical">

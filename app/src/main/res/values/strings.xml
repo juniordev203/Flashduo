@@ -5,4 +5,13 @@
     <string name="h_c_ng_n_ng_m_i_c_ng_flashduo">Học ngôn ngữ mới cùng Flashduo..</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_chooselanguage">Hãy lựa chọn ngôn ngữ mà bạn muốn học..</string>
+    <string name="btn_continue">Tiếp tục</string>
+    <string name="tv_choosecategory">Hãy chọn thể loại  bạn muốn học..</string>
+    <string name="btn_tracnghiem">Trắc nghiệm</string>
+    <string name="btn_flashcard">Từ vựng bằng Flash Card</string>
+    <string name="btn_maucau">Mẫu câu</string>
+    <string name="btn_phatam">Phát âm</string>
+    <string name="btn_game">Game</string>
+
 </resources>
