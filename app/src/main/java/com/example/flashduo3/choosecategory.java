@@ -25,7 +25,7 @@ public class choosecategory extends AppCompatActivity {
         Button btn_continue = findViewById(R.id.btn_continue);
         btn_continue.setOnClickListener(v -> {
             if (optionSelected == 0) {
-                Intent intent = new Intent(choosecategory.this, chooselanguage.class);
+                Intent intent = new Intent(choosecategory.this, multiple_choice.class);
                 startActivity(intent);
             }
             else if (optionSelected == 1) {

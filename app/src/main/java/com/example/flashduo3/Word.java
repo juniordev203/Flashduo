@@ -31,4 +31,17 @@ public class Word implements java.io.Serializable{
     @ColumnInfo(name = "picture")
     public String picture;
 
+
+    public List<String> getOptions() {
+        return options;
+    }
+
+    public String getAnswer(){
+        return answer;
+    }
+
+//    public Word(String strChinese, String strMeaning) {
+//        this.chinese = strChinese;
+//        this.meaning = strMeaning;
+//    }
 }

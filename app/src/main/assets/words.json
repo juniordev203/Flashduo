@@ -4,7 +4,7 @@
     "chinese": "中文",
     "meaning": "người Trung Quốc",
     "sentence": "中文很落後",
-    "question": "Which term in Chinese refers to the Chinese language?",
+    "question": "Thuật ngữ nào trong tiếng Trung chỉ ngôn ngữ Trung Quốc?",
     "options": [
       "汉语 (Hànyǔ)",
       "中文 (Zhōngwén)",
@@ -17,16 +17,16 @@
   {
     "id": 2,
     "chinese": "方式",
-    "meaning": "phương pháp",
-    "sentence": "我们需要找到一种新的方式来解决这个问题。- Chúng ta cần tìm một phương pháp mới để giải quyết vấn đề này",
-    "question": "What does the term \"方式\" (Fāngshì) mean in Chinese?",
+    "meaning": "đường",
+    "sentence": "我们需要找到一种新的方式来解决这个问题。-  We need to find a new method to solve this problem.",
+    "question": "Thuật ngữ \"方式\" (Fāngshì) trong tiếng Trung có nghĩa là gì?",
     "options": [
-      "Method",
-      "Food",
-      "Destination",
-      "Color"
+      "Phương pháp",
+      "Thực phẩm",
+      "Điểm đến",
+      "Màu sắc"
     ],
-    "answer": "Method",
+    "answer": "Phương pháp",
     "picture": "method"
   },
   {
@@ -34,14 +34,14 @@
     "chinese": "校園",
     "meaning": "khuôn viên đại học",
     "sentence": "我喜欢在校園里散步。 I like to take a walk on the school campus.",
-    "question": "",
+    "question": "Thuật ngữ \"校園\" (Xiàoyuán) trong tiếng Trung thông thường đề cập đến điều gì?",
     "options": [
-      "A type of flower",
-      "A traditional ceremony",
-      "A school campus",
-      "A martial arts technique"
+      "Một loại hoa",
+      "Một nghi lễ truyền thống",
+      "Một khuôn viên trường học",
+      "Một kỹ thuật võ thuật"
     ],
-    "answer": "A school campus",
+    "answer": "Một khuôn viên trường học",
     "picture": "campus"
   },
   {
@@ -49,14 +49,14 @@
     "chinese": "社區",
     "meaning": "Cộng đồng",
     "sentence": "在我们的社區中，居民们彼此相互支持。 - In our community, residents support each other.",
-    "question": "What does the term \"社區\" (Shèqū) mean in Chinese?",
+    "question": "Thuật ngữ \"社區\" (Shèqū) trong tiếng Trung có nghĩa là gì?",
     "options": [
-      "A type of food",
-      "A form of art",
-      "A community",
-      "A musical instrument"
+      "Một loại thức ăn",
+      "Một dạng nghệ thuật",
+      "Một cộng đồng",
+      "Một loại nhạc cụ"
     ],
-    "answer": "A community",
+    "answer": "Một cộng đồng",
     "picture": "community"
   },
   {
@@ -64,14 +64,14 @@
     "chinese": "積極",
     "meaning": "tích cực",
     "sentence": "她的積極態度讓她成功克服了許多困難。 - Her proactive attitude helped her overcome many difficulties successfully.",
-    "question": "What does the term \"積極\" (Jījí) primarily connote in Chinese culture?",
+    "question": "Thuật ngữ \"積極\" (Jījí) chủ yếu ngụ ý điều gì trong văn hóa Trung Quốc?",
     "options": [
-      "Proactive and optimistic",
-      "Passive and pessimistic",
-      "Indifferent and apathetic",
-      "Impulsive and reckless"
+      "Tích cực và lạc quan",
+      "Passive và bi quan",
+      "Vô cảm và thờ ơ",
+      "Bốc đồng và liều lĩnh"
     ],
-    "answer": "Proactive and optimistic",
+    "answer": "Tích cực và lạc quan",
     "picture": "optimistic"
   },
   {
@@ -79,14 +79,14 @@
     "chinese": "經營",
     "meaning": "việc kinh doanh",
     "sentence": "他精明地經營著他的企業，使其持續增長。 - He manages his business shrewdly, ensuring its continuous growth.",
-    "question": "What does the term \"經營\" (Jīngyíng) typically refer to in a business context?",
+    "question": "Thuật ngữ \"經營\" (Jīngyíng) thường đề cập đến điều gì trong ngữ cảnh kinh doanh?",
     "options": [
       "Marketing",
-      "Management",
-      "Accounting",
-      "Human Resources"
+      "Quản lý",
+      "Kế toán",
+      "Nhân sự"
     ],
-    "answer": "Management",
+    "answer": "Quản lý",
     "picture": "manage"
   },
   {
@@ -94,14 +94,14 @@
     "chinese": "美麗",
     "meaning": "sắc đẹp",
     "sentence": "她穿著一袭美麗的白色礼服出席晚宴。 - She wore a beautiful white gown to the evening banquet.",
-    "question": "What does the term \"美麗\" (Měilì) mean in Chinese?",
+    "question": "Thuật ngữ \"美麗\" (Měilì) trong tiếng Trung có nghĩa là gì?",
     "options": [
-      "Delicious",
-      "Beautiful",
-      "Dangerous",
-      "Expensive"
+      "Ngon",
+      "Đẹp",
+      "Nguy hiểm",
+      "Đắt đỏ"
     ],
-    "answer": "Beautiful",
+    "answer": "Đẹp",
     "picture": "beautiful"
   },
   {
@@ -109,14 +109,14 @@
     "chinese": "老",
     "meaning": "cũ",
     "sentence": "这个老人在公园里散步。 - The old man is walking in the park.",
-    "question": "What does the term \"老\" (Lǎo) commonly indicate in Chinese?",
+    "question": "Thuật ngữ \"老\" (Lǎo) thông thường chỉ điều gì trong tiếng Trung?",
     "options": [
-      "Old",
-      "Young",
-      "Tired",
-      "Happy"
+      "Già",
+      "Trẻ",
+      "Mệt mỏi",
+      "Hạnh phúc"
     ],
-    "answer": "Old",
+    "answer": "Già",
     "picture": "old"
   },
   {
@@ -124,14 +124,14 @@
     "chinese": "行政",
     "meaning": "hành chính",
     "sentence": "行政部门负责处理公司的日常管理事务。 - The administration department is responsible for handling the company's daily management affairs.",
-    "question": "What does the term \"行政\" (Xíngzhèng) typically refer to in an organizational context?",
+    "question": "Thuật ngữ \"行政\" (Xíngzhèng) thường đề cập đến điều gì trong ngữ cảnh tổ chức?",
     "options": [
-      "Finance",
-      "Human Resources",
-      "Administration",
+      "Tài chính",
+      "Nhân sự",
+      "Hành chính",
       "Marketing"
     ],
-    "answer": "Administration",
+    "answer": "Hành chính",
     "picture": "administration"
   },
   {
@@ -139,14 +139,14 @@
     "chinese": "製作",
     "meaning": "làm, chế tạo",
     "sentence": "他喜歡製作手工藝品作為禮物送給朋友。 - He enjoys making handmade crafts as gifts for friends.",
-    "question": "What does the term \"製作\" (Zhìzuò) refer to in Chinese?",
+    "question": "Thuật ngữ \"製作\" (Zhìzuò) trong tiếng Trung đề cập đến điều gì?",
     "options": [
-      "Cooking",
-      "Making",
-      "Selling",
-      "Repairing"
+      "Nấu nướng",
+      "Làm",
+      "Bán",
+      "Sửa chữa"
     ],
-    "answer": "Making",
+    "answer": "Làm",
     "picture": "manufacture"
   }
 ]

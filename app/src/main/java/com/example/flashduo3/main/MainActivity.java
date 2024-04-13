@@ -48,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
 //        LocaleHelper.setLocale(this, language);
 
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+
 //        JsonManipulator jsonmanu = new JsonManipulator();
 //        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+        Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);
             startActivity(intent);

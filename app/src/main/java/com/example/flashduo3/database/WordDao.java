@@ -23,6 +23,9 @@ public interface WordDao {
     @Query("SELECT id, chinese, meaning, sentence, picture FROM Word")
     List<Word> getAll();
 
+    @Query("SELECT * FROM Word")
+    List<Word> getAllQuestion();
+
     @Query("Select * FROM Word where id = :wordId")
     Word getById(int wordId);
 
