@@ -31,6 +31,7 @@
         <activity android:name=".chooselanguage" />
         <activity android:name=".subject" />
         <activity android:name=".choosecategory" />
+        <activity android:name=".multiple_choice" />
         <activity android:name=".main_flashcard" />
         <activity android:name=".main_card" />
         <activity android:name=".main_vocab" />
