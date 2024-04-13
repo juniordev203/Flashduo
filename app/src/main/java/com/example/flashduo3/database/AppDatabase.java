@@ -43,21 +43,6 @@ public abstract class AppDatabase extends RoomDatabase {
         return db;
     }
 
-    public static AppDatabase getDatabaseQuestion(final Context context) {
-        if (db == null) {
-            db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "question_database").addCallback(new RoomDatabase.Callback() {
-                @Override
-                public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                    super.onCreate(db);
-                    Executors.newSingleThreadExecutor().execute(() -> {
-                        List<Word> questions = loadQuestionsFromAsset(context);
-                        getDatabaseQuestion(context).wordDao().insertAll(questions);
-                    });
-                }
-            }).build();
-        }
-        return db;
-    }
 
 
     public static List<Word> loadQuestionsFromAsset(Context context) {

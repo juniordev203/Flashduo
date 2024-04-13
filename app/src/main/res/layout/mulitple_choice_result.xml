@@ -17,16 +17,6 @@
         app:srcCompat="@drawable/xoa" />
 
     <ImageView
-        android:id="@+id/img_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plus" />
-
-    <ImageView
         android:id="@+id/img_undo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

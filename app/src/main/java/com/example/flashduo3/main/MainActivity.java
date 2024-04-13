@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-//        JsonManipulator jsonmanu = new JsonManipulator();
-//        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+        JsonManipulator jsonmanu = new JsonManipulator();
+        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
         Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);

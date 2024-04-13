@@ -113,23 +113,49 @@ public class multiple_choice extends AppCompatActivity{
 
     }
 
+//    private void displayCurrentQuestion(Word question) {
+//        resetButtonDrawables(); // Đặt lại drawable của các nút ABCD
+//        Type type = new TypeToken<List<String>>() {
+//        }.getType();
+//        List<String> options = question.getOptions();
+//        btn_A.setVisibility(View.VISIBLE);
+//        btn_B.setVisibility(View.VISIBLE);
+//        btn_C.setVisibility(View.VISIBLE);
+//        btn_D.setVisibility(View.VISIBLE);
+//
+//        questionTextView.setText(question.question);
+//        questionCount.setText(question.id + "/10");
+//        btn_A.setText(options.get(0));
+//        btn_B.setText(options.get(1));
+//        btn_C.setText(options.get(2));
+//        btn_D.setText(options.get(3));
+//    }
+
     private void displayCurrentQuestion(Word question) {
         resetButtonDrawables(); // Đặt lại drawable của các nút ABCD
-        Type type = new TypeToken<List<String>>() {
-        }.getType();
-        List<String> options = question.getOptions();
-        btn_A.setVisibility(View.VISIBLE);
-        btn_B.setVisibility(View.VISIBLE);
-        btn_C.setVisibility(View.VISIBLE);
-        btn_D.setVisibility(View.VISIBLE);
 
-        questionTextView.setText(question.question);
-        questionCount.setText(question.id + "/10");
-        btn_A.setText(options.get(0));
-        btn_B.setText(options.get(1));
-        btn_C.setText(options.get(2));
-        btn_D.setText(options.get(3));
+        if (question != null && question.getOptions() != null && !question.getOptions().isEmpty()) {
+            List<String> options = question.getOptions();
+
+            // Ẩn tất cả các nút
+            btn_A.setVisibility(View.VISIBLE);
+            btn_B.setVisibility(View.VISIBLE);
+            btn_C.setVisibility(View.VISIBLE);
+            btn_D.setVisibility(View.VISIBLE);
+
+            // Hiển thị câu hỏi và các lựa chọn
+            questionTextView.setText(question.question);
+            questionCount.setText(question.id + "/10");
+            btn_A.setText(options.get(0));
+            btn_B.setText(options.get(1));
+            btn_C.setText(options.get(2));
+            btn_D.setText(options.get(3));
+        } else {
+            // Xử lý trường hợp options null hoặc không có dữ liệu
+            // Thực hiện các hành động cần thiết, ví dụ như thông báo lỗi
+        }
     }
+
 
     private void checkAnswer(String selectedAnswer){
         Word currentQuestion = questions.get(currentQuestionIndex);
