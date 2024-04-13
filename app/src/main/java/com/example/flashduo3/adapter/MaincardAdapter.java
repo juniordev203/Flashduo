@@ -9,6 +9,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,39 +54,12 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
         holder.tvMeaning.setText(word.meaning);
         holder.tvSentence.setText(word.sentence);
         holder.img_meaning.setImageURI(Uri.parse(word.picture));
-
-
-//        holder.layoutcard.setOnClickListener(new View.OnClickListener() {
-//            public ImageView tv_chinese_mainvocab;
-//            private TextView tv_meaning_mainvocab;
-//            private TextView tv_sentence_mainvocab;
-//            @Override
-//            public void onClick(View v) {
-//                onClickAnimation(holder);
-//            }
-//        });
+        Log.d("URI_DEBUG", "URI: " + word.picture);
     }
-
-//    private void onClickAnimation(MaincardAdapter.MyViewHolder holder) {
-//        LinearLayout layout_card = holder.layoutcard;
-//        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(context.getApplicationContext(), R.animator.hieu_ung_flashcard);
-//        set.setTarget(layout_card);
-//        set.start();
-//        set.addListener(new AnimatorListenerAdapter() {
-//            TextView tv_chinese = holder.tvChinese;
-//            @Override
-//            public void onAnimationEnd(Animator animation) {
-//                super.onAnimationEnd(animation);
-//                tv_chinese.setVisibility(View.VISIBLE);
-//            }
-//        });
-//    }
-
     @Override
     public int getItemCount() {
         return words.size();
     }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvChinese;
         private final TextView tvMeaning;
@@ -99,7 +73,6 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
             tvSentence = itemView.findViewById(R.id.tv_sentence_mainvocab);
             img_meaning = itemView.findViewById(R.id.img_meaning);
             layoutcard = itemView.findViewById(R.id.layout_card);
-
         }
     }
 }

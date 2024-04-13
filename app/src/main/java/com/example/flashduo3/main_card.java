@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,6 +46,7 @@ public class main_card extends AppCompatActivity{
                 MaincardAdapter maincardAdapter = new MaincardAdapter(this,words);
                 rcv_vocab.setLayoutManager(linearLayoutManager);
                 rcv_vocab.setAdapter(maincardAdapter);
+
             });
         }).start();
 
@@ -53,11 +55,8 @@ public class main_card extends AppCompatActivity{
             startActivity(intent);
         });
         img_plus.setOnClickListener(v -> {
-            ImagePicker.with(this)
-                    .crop()	    			//Crop image(Optional), Check Customization for more option
-                    .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                    .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                    .start();
+            Intent intent = new Intent(main_card.this, main_vocab.class);
+            startActivity(intent);
         });
 
         img_flip.setOnClickListener(v -> {
@@ -73,16 +72,12 @@ public class main_card extends AppCompatActivity{
         img_play = findViewById(R.id.img_play);
         img_flip = findViewById(R.id.img_flip);
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ImagePicker.REQUEST_CODE && resultCode == RESULT_OK) {
-            // Lấy đường dẫn của hình ảnh từ Intent
-            Uri uri = data.getData();
-
-            // Hiển thị hình ảnh được chọn lên RecyclerView
-            // Đây là nơi bạn cần thêm hình ảnh vào RecyclerView
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == ImagePicker.REQUEST_CODE && resultCode == RESULT_OK) {
+//            Uri uri = data.getData();
+//        }
+//    }
 
 }
