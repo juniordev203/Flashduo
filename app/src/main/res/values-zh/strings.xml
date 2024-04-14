@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flashduo3</string>
+    <string name="todo">需要做的事</string>
+    <string name="btn_batdau">开始</string>
+    <string name="h_c_ng_n_ng_m_i_c_ng_flashduo">使用 Flashduo 学习新语言..</string>
+    <!-- TODO: 删除或更改此占位符文本 -->
+    <string name="hello_blank_fragment">你好，空白片段</string>
+    <string name="tv_chooselanguage">选择您想学习的语言..</string>
+    <string name="btn_continue">继续</string>
+    <string name="tv_choosecategory">选择您想学习的类别..</string>
+    <string name="btn_tracnghiem">多项选择题</string>
+    <string name="btn_flashcard">使用记忆卡片学习词汇</string>
+    <string name="btn_maucau">样例句子</string>
+    <string name="btn_phatam">发音</string>
+    <string name="btn_game">游戏</string>
+
+    <string name="btn_theginho">记忆卡片</string>
+    <string name="btn_tuvungcuaban">您的词汇</string>
+    <string name="btn_kiemtra">检查</string>
+    <string name="btn_ghepthe">匹配卡片</string>
+
+    <string name="btn_them">添加</string>
+</resources>

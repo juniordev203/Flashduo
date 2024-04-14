@@ -7,6 +7,7 @@ import android.animation.AnimatorSet;
 import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -20,12 +21,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.flashduo3.R;
 import com.example.flashduo3.Word;
 import com.example.flashduo3.main_card;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyViewHolder>{
@@ -53,8 +58,9 @@ public class MaincardAdapter extends RecyclerView.Adapter<MaincardAdapter.MyView
         holder.tvChinese.setText(word.chinese);
         holder.tvMeaning.setText(word.meaning);
         holder.tvSentence.setText(word.sentence);
-        holder.img_meaning.setImageURI(Uri.parse(word.picture));
-        Log.d("URI_DEBUG", "URI: " + word.picture);
+        Glide.with(holder.itemView.getContext())
+                .load(word.picture) // Load image from URL
+                .into(holder.img_meaning);
     }
     @Override
     public int getItemCount() {

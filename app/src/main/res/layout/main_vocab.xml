@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/button_card"
-                android:text="Thêm"
+                android:text="@string/btn_them"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="normal"

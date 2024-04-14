@@ -27,15 +27,21 @@ public class main_flashcard extends AppCompatActivity {
     private Button btn_ghepthe;
     private RecyclerView rcv_view;
     private Button btn_card2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_flashcard);
+
+        // Khởi tạo giao diện người dùng
         initUi();
+
+        // Thực hiện các tác vụ trong một luồng mới để tránh chặn luồng giao diện người dùng
         new Thread(() -> {
             AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
             List<Word> words = db.wordDao().getAll();
             runOnUiThread(() -> {
+                // Tạo linearLayoutManager và adapter cho RecyclerView
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
                 CardAdapter cardAdapter = new CardAdapter(this,words);
                 rcv_view.setLayoutManager(linearLayoutManager);
@@ -43,6 +49,7 @@ public class main_flashcard extends AppCompatActivity {
             });
         }).start();
 
+        // Thiết lập onClickListener cho RecyclerView để thực hiện hiệu ứng lật
         rcv_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +68,8 @@ public class main_flashcard extends AppCompatActivity {
                 });
             }
         });
+
+        // Thiết lập onClickListener cho nút btn_card2 để thực hiện hiệu ứng lật ngược lại
         btn_card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,13 +89,11 @@ public class main_flashcard extends AppCompatActivity {
             }
         });
 
-
         ImageView img_exit = findViewById(R.id.img_exit);
         img_exit.setOnClickListener(v -> {
             Intent intent = new Intent(main_flashcard.this, choosecategory.class);
             startActivity(intent);
         });
-
         btn_theghinho.setOnClickListener(v -> {
             Intent intent = new Intent(main_flashcard.this, main_card.class);
             startActivity(intent);
@@ -97,6 +104,8 @@ public class main_flashcard extends AppCompatActivity {
         });
 
     }
+
+    // Phương thức này được sử dụng để khởi tạo giao diện người dùng
     private void initUi() {
         img_exit = findViewById(R.id.img_exit);
         btn_theghinho = findViewById(R.id.btn_theghinho);
@@ -106,6 +115,4 @@ public class main_flashcard extends AppCompatActivity {
         btn_card2 = findViewById(R.id.btn_card2);
         rcv_view = findViewById(R.id.rcv_view);
     }
-
-
 }

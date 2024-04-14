@@ -43,14 +43,9 @@ public class MainActivity extends AppCompatActivity {
         img_language_chinese = findViewById(R.id.img_language_chinese);
         btnbatdau = findViewById(R.id.btnbatdau);
         textView2 = findViewById(R.id.textView2);
-
-//        String language = getSelectedLanguage(this);
-//        LocaleHelper.setLocale(this, language);
-
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-
-//        JsonManipulator jsonmanu = new JsonManipulator();
-//        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+        //JsonManipulator jsonmanu = new JsonManipulator();
+        //jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
         Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);

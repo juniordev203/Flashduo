@@ -42,7 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         }
         holder.tvChinese.setText(word.chinese);
         holder.tvMeaning.setText(word.meaning);
-        holder.imgGallery.setImageURI(Uri.parse(word.picture));
+        Glide.with(holder.itemView.getContext())
+                .load(word.picture) // Load image from URL
+                .into(holder.imgGallery); // Set image to ImageView
     }
 
     @Override

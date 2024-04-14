@@ -56,7 +56,9 @@ public class main_vocab extends AppCompatActivity {
     private ImageView img_addimage;
     private MyAdapter myAdapter;
     private List<Word> words;
+    private Uri mUri;
 
+    // Khai báo và định nghĩa ActivityResultLauncher để xử lý kết quả của việc chọn hình ảnh
     private final ActivityResultLauncher  <Intent> mActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -69,6 +71,7 @@ public class main_vocab extends AppCompatActivity {
                             return;
                         }
                         Uri uri = data.getData();
+                        mUri = uri;
                         try {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                             img_addimage.setImageBitmap(bitmap);
@@ -78,7 +81,7 @@ public class main_vocab extends AppCompatActivity {
                         }
                     }
                 }
-
+                // Lấy đường dẫn từ Uri của hình ảnh
                 private String getPathFromUri(Uri uri) {
                     String path = null;
                     String[] projection = {MediaStore.Images.Media.DATA};
@@ -94,7 +97,7 @@ public class main_vocab extends AppCompatActivity {
             });
 
 
-    @SuppressLint("NotifyDataSetChanged")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_vocab);
@@ -116,9 +119,10 @@ public class main_vocab extends AppCompatActivity {
             String strChinese = edt_chinese.getText().toString().trim();
             String strMeaning = edt_meaning.getText().toString().trim();
             String strPicture = selectedImagePath;
-            if (strChinese.isEmpty() || strMeaning.isEmpty()) {
+            if (strChinese.isEmpty() || strMeaning.isEmpty() || strPicture.isEmpty()) {
                 return;
             }
+            //Thêm từ mới vào cơ sở dữ liệu và cập nhật RecyclerView
             new Thread(() -> {
                 Word word = new Word();
                 word.chinese = strChinese;
@@ -146,7 +150,7 @@ public class main_vocab extends AppCompatActivity {
 
 
     }
-
+    // Yêu cầu quyền truy cập vào thư viện hình ảnh
     private void onClickRequestPermission() {
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             openGallery();
@@ -159,6 +163,7 @@ public class main_vocab extends AppCompatActivity {
             requestPermissions(permissions, MY_REQUEST_CODE);
         }
     }
+    // Phương thức này được gọi sau khi người dùng đã cấp quyền truy cập vào thư viện hình ảnh
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -167,6 +172,7 @@ public class main_vocab extends AppCompatActivity {
             Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
         }
     }
+    // Mở thư viện hình ảnh
     private void openGallery() {
         Intent intent = new Intent();
         intent.setType("image/*");
