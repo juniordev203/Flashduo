@@ -25,7 +25,7 @@ import java.util.concurrent.Executors;
 @Database(entities = {Word.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabaseForQuestion extends RoomDatabase {
-    public static final String DATABASE_NAME = "word_database";
+    public static final String DATABASE_NAME = "questions_database";
     public static AppDatabaseForQuestion db;
     static Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
@@ -37,7 +37,7 @@ public abstract class AppDatabaseForQuestion extends RoomDatabase {
     public static AppDatabaseForQuestion getDatabase(final Context context) {
         if (db == null){
             db = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabaseForQuestion.class, "word_database")
+                            AppDatabaseForQuestion.class, DATABASE_NAME)
                     .fallbackToDestructiveMigration()
                     .build();
         }
