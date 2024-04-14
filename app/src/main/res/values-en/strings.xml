@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flashduo3</string>
+    <string name="todo">TODO</string>
+    <string name="btn_batdau">Start</string>
+    <string name="h_c_ng_n_ng_m_i_c_ng_flashduo">Learn new languages with Flashduo..</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_chooselanguage">Choose the language you want to learn..</string>
+    <string name="btn_continue">Continue</string>
+    <string name="tv_choosecategory">Choose the genre you want to study..</string>
+    <string name="btn_tracnghiem">Multiple-choice</string>
+    <string name="btn_flashcard">Vocabulary using Flash Cards</string>
+    <string name="btn_maucau">Sample sentences</string>
+    <string name="btn_phatam">Pronounce</string>
+    <string name="btn_game">Game</string>
+
+    <string name="btn_theginho">Flashcards</string>
+    <string name="btn_tuvungcuaban">Your vocabulary</string>
+    <string name="btn_kiemtra">Check</string>
+    <string name="btn_ghepthe">Match cards</string>
+
+    <string name="btn_them">Add</string>
+</resources>

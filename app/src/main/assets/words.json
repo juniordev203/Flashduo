@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "chinese": "中文",
+    "meaning": "người Trung Quốc",
+    "sentence": "中文很落後",
+    "question": "Thuật ngữ nào trong tiếng Trung chỉ ngôn ngữ Trung Quốc?",
+    "options": [
+      "汉语 (Hànyǔ)",
+      "中文 (Zhōngwén)",
+      "日本語 (Nihongo)",
+      "한국어 (Hangugeo)"
+    ],
+    "answer": "中文 (Zhōngwén)",
+    "picture": "https://th.bing.com/th/id/OIP.gBjJjFUFFOm7BhXCX1hgcQHaJm?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 2,
+    "chinese": "方式",
+    "meaning": "đường",
+    "sentence": "我们需要找到一种新的方式来解决这个问题。-  We need to find a new method to solve this problem.",
+    "question": "Thuật ngữ \"方式\" (Fāngshì) trong tiếng Trung có nghĩa là gì?",
+    "options": [
+      "Phương pháp",
+      "Thực phẩm",
+      "Điểm đến",
+      "Màu sắc"
+    ],
+    "answer": "Phương pháp",
+    "picture": "https://images.pexels.com/photos/276299/pexels-photo-276299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    "id": 3,
+    "chinese": "校園",
+    "meaning": "khuôn viên đại học",
+    "sentence": "我喜欢在校園里散步。 I like to take a walk on the school campus.",
+    "question": "Thuật ngữ \"校園\" (Xiàoyuán) trong tiếng Trung thông thường đề cập đến điều gì?",
+    "options": [
+      "Một loại hoa",
+      "Một nghi lễ truyền thống",
+      "Một khuôn viên trường học",
+      "Một kỹ thuật võ thuật"
+    ],
+    "answer": "Một khuôn viên trường học",
+    "picture": "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    "id": 4,
+    "chinese": "社區",
+    "meaning": "Cộng đồng",
+    "sentence": "在我们的社區中，居民们彼此相互支持。 - In our community, residents support each other.",
+    "question": "Thuật ngữ \"社區\" (Shèqū) trong tiếng Trung có nghĩa là gì?",
+    "options": [
+      "Một loại thức ăn",
+      "Một dạng nghệ thuật",
+      "Một cộng đồng",
+      "Một loại nhạc cụ"
+    ],
+    "answer": "Một cộng đồng",
+    "picture": "https://th.bing.com/th/id/OIP.8sVRZ1e71QdhNyRgHNX8SQHaFB?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 5,
+    "chinese": "積極",
+    "meaning": "tích cực",
+    "sentence": "她的積極態度讓她成功克服了許多困難。 - Her proactive attitude helped her overcome many difficulties successfully.",
+    "question": "Thuật ngữ \"積極\" (Jījí) chủ yếu ngụ ý điều gì trong văn hóa Trung Quốc?",
+    "options": [
+      "Tích cực và lạc quan",
+      "Passive và bi quan",
+      "Vô cảm và thờ ơ",
+      "Bốc đồng và liều lĩnh"
+    ],
+    "answer": "Tích cực và lạc quan",
+    "picture": "https://th.bing.com/th/id/OIP.iQAnoc7Shqe1p5G5LHbUkgHaFj?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 6,
+    "chinese": "經營",
+    "meaning": "việc kinh doanh",
+    "sentence": "他精明地經營著他的企業，使其持續增長。 - He manages his business shrewdly, ensuring its continuous growth.",
+    "question": "Thuật ngữ \"經營\" (Jīngyíng) thường đề cập đến điều gì trong ngữ cảnh kinh doanh?",
+    "options": [
+      "Marketing",
+      "Quản lý",
+      "Kế toán",
+      "Nhân sự"
+    ],
+    "answer": "Quản lý",
+    "picture": "https://th.bing.com/th/id/OIP.43Dje1wHiyBMrak0ZImm5wHaE8?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 7,
+    "chinese": "美麗",
+    "meaning": "sắc đẹp",
+    "sentence": "她穿著一袭美麗的白色礼服出席晚宴。 - She wore a beautiful white gown to the evening banquet.",
+    "question": "Thuật ngữ \"美麗\" (Měilì) trong tiếng Trung có nghĩa là gì?",
+    "options": [
+      "Ngon",
+      "Đẹp",
+      "Nguy hiểm",
+      "Đắt đỏ"
+    ],
+    "answer": "Đẹp",
+    "picture": "https://th.bing.com/th/id/OIP.G7A8PYv5tbBKqdl6z5bRNAHaEo?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 8,
+    "chinese": "老",
+    "meaning": "cũ",
+    "sentence": "这个老人在公园里散步。 - The old man is walking in the park.",
+    "question": "Thuật ngữ \"老\" (Lǎo) thông thường chỉ điều gì trong tiếng Trung?",
+    "options": [
+      "Già",
+      "Trẻ",
+      "Mệt mỏi",
+      "Hạnh phúc"
+    ],
+    "answer": "Già",
+    "picture": "https://th.bing.com/th/id/OIP.LqDZuJyl1xZ67H9l_PJfEQHaE7?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 9,
+    "chinese": "行政",
+    "meaning": "hành chính",
+    "sentence": "行政部门负责处理公司的日常管理事务。 - The administration department is responsible for handling the company's daily management affairs.",
+    "question": "Thuật ngữ \"行政\" (Xíngzhèng) thường đề cập đến điều gì trong ngữ cảnh tổ chức?",
+    "options": [
+      "Tài chính",
+      "Nhân sự",
+      "Hành chính",
+      "Marketing"
+    ],
+    "answer": "Hành chính",
+    "picture": "https://th.bing.com/th/id/OIP._eQ7Xm6ksBBye-QOJYhDaQHaEa?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": 10,
+    "chinese": "製作",
+    "meaning": "làm, chế tạo",
+    "sentence": "他喜歡製作手工藝品作為禮物送給朋友。 - He enjoys making handmade crafts as gifts for friends.",
+    "question": "Thuật ngữ \"製作\" (Zhìzuò) trong tiếng Trung đề cập đến điều gì?",
+    "options": [
+      "Nấu nướng",
+      "Làm",
+      "Bán",
+      "Sửa chữa"
+    ],
+    "answer": "Làm",
+    "picture": "https://th.bing.com/th/id/OIP.hNmmpVC2_aQX87cAnrpAaAHaE8?rs=1&pid=ImgDetMain"
+  }
+]

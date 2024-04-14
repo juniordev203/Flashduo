@@ -1,0 +1,37 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Quay từ góc 0 đến góc 90 trên trục Y, đồng thời thu nhỏ -->
+    <objectAnimator
+        android:duration="150"
+        android:propertyName="rotationY"
+        android:valueFrom="0"
+        android:valueTo="90"/>
+    <objectAnimator
+        android:duration="250"
+        android:propertyName="scaleX"
+        android:valueFrom="1"
+        android:valueTo="0.5"/>
+    <objectAnimator
+        android:duration="150"
+        android:propertyName="alpha"
+        android:valueFrom="1"
+        android:valueTo="0"/>
+    <!-- Xoay ngược lại từ góc 90 đến góc 0 trên trục Y, đồng thời phóng to -->
+    <objectAnimator
+        android:duration="150"
+        android:propertyName="rotationY"
+        android:valueFrom="90"
+        android:valueTo="0"
+        android:startOffset="500"/>
+    <objectAnimator
+        android:duration="150"
+        android:propertyName="scaleX"
+        android:valueFrom="0.5"
+        android:valueTo="1"
+        android:startOffset="500"/>
+    <objectAnimator
+        android:duration="150"
+        android:propertyName="alpha"
+        android:valueFrom="0"
+        android:valueTo="1"
+        android:startOffset="500"/>
+</set>
