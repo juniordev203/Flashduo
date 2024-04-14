@@ -47,7 +47,9 @@
         <ImageView
             android:id="@+id/img_gallery"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 
