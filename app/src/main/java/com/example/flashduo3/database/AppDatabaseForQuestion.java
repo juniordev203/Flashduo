@@ -33,7 +33,6 @@ public abstract class AppDatabaseForQuestion extends RoomDatabase {
             database.execSQL("ALTER TABLE word_table ADD COLUMN picture TEXT");
         }
     };
-
     public static AppDatabaseForQuestion getDatabase(final Context context) {
         if (db == null){
             db = Room.databaseBuilder(context.getApplicationContext(),
