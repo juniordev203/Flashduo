@@ -32,6 +32,7 @@ public class multiple_choice extends AppCompatActivity{
     private List<Word> questions = new ArrayList<>();
     private int currentQuestionIndex = 0;
     private int correctAnswersCount = 0;
+    private boolean answerChosen = false;
 
 //    private static final int DELAY_TIME = 0;
 
@@ -50,32 +51,44 @@ public class multiple_choice extends AppCompatActivity{
         btn_A.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentSelectedButtonId = v.getId();
-                checkAnswer(btn_A.getText().toString());
+                if (!answerChosen) {
+                    currentSelectedButtonId = v.getId();
+                    checkAnswer(btn_A.getText().toString());
+                    answerChosen = true;
+                }
             }
         });
 
         btn_B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentSelectedButtonId = v.getId();
-                checkAnswer(btn_B.getText().toString());
+                if (!answerChosen) {
+                    currentSelectedButtonId = v.getId();
+                    checkAnswer(btn_B.getText().toString());
+                    answerChosen = true;
+                }
             }
         });
 
         btn_C.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentSelectedButtonId = v.getId();
-                checkAnswer(btn_C.getText().toString());
+                if (!answerChosen) {
+                    currentSelectedButtonId = v.getId();
+                    checkAnswer(btn_C.getText().toString());
+                    answerChosen = true;
+                }
             }
         });
 
         btn_D.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentSelectedButtonId = v.getId();
-                checkAnswer(btn_D.getText().toString());
+                if (!answerChosen) {
+                    currentSelectedButtonId = v.getId();
+                    checkAnswer(btn_D.getText().toString());
+                    answerChosen = true;
+                }
             }
         });
 
@@ -88,6 +101,7 @@ public class multiple_choice extends AppCompatActivity{
                 } else {
                     showResult();
                 }
+                answerChosen = false;
             }
 
         });
