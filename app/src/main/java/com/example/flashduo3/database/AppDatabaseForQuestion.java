@@ -43,25 +43,6 @@ public abstract class AppDatabaseForQuestion extends RoomDatabase {
         }
         return db;
     }
-
-
-//    public static List<Word> loadQuestionsFromAsset(Context context) {
-//        try {
-//            InputStream is = context.getAssets().open("words.json");
-//            int size = is.available();
-//            byte[] buffer = new byte[size];
-//            is.read(buffer);
-//            is.close();
-//            String json = new String(buffer, "UTF-8");
-//            Gson gson = new Gson();
-//            Type listType = new TypeToken<List<Word>>() {
-//            }.getType();
-//            return gson.fromJson(json, listType);
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//            return null;
-//        }
-//    }
     public abstract WordDao wordDao();
 
 }
