@@ -21,6 +21,7 @@ import com.example.flashduo3.LocaleHelper;
 import com.example.flashduo3.R;
 import com.example.flashduo3.chooselanguage;
 import com.example.flashduo3.database.AppDatabase;
+import com.example.flashduo3.database.AppDatabaseForQuestion;
 
 import java.util.Locale;
 
@@ -43,9 +44,12 @@ public class MainActivity extends AppCompatActivity {
         img_language_chinese = findViewById(R.id.img_language_chinese);
         btnbatdau = findViewById(R.id.btnbatdau);
         textView2 = findViewById(R.id.textView2);
+
         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+        AppDatabaseForQuestion dbfq = AppDatabaseForQuestion.getDatabase(getApplicationContext());
 //        JsonManipulator jsonmanu = new JsonManipulator();
-//        jsonmanu.insertJsonDataIntoDatabase(db, getApplicationContext());
+//        jsonmanu.insertJsonDataIntoDatabase(db,dbfq, getApplicationContext());
+
         Button btnbatdau = findViewById(R.id.btnbatdau);
         btnbatdau.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, chooselanguage.class);

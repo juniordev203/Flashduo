@@ -45,7 +45,11 @@ public class multiple_choice extends AppCompatActivity{
         new Thread(() -> {
             AppDatabaseForQuestion db = AppDatabaseForQuestion.getDatabase(getApplicationContext());
             questions.addAll(db.wordDao().getAllQuestion());
-            runOnUiThread(() -> displayCurrentQuestion(questions.get(currentQuestionIndex)));
+            runOnUiThread(() -> {
+                if (!questions.isEmpty()) {
+                    displayCurrentQuestion(questions.get(currentQuestionIndex));
+                }
+            });
         }).start();
 
         btn_A.setOnClickListener(new View.OnClickListener() {

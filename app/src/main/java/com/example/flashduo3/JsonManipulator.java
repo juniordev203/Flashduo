@@ -3,6 +3,7 @@ package com.example.flashduo3;
 import android.content.Context;
 
 import com.example.flashduo3.database.AppDatabase;
+import com.example.flashduo3.database.AppDatabaseForQuestion;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -20,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class JsonManipulator {
-    public void insertJsonDataIntoDatabase(AppDatabase db, Context context) {
+    public void insertJsonDataIntoDatabase(AppDatabase db, AppDatabaseForQuestion dbfq, Context context) {
         new Thread(() -> {
             String json = loadJsonFromAssets(context);
             Type listType = new TypeToken<List<Word>>() {
@@ -29,6 +30,9 @@ public class JsonManipulator {
 
             db.wordDao().deleteAll();
             db.wordDao().insertAll(words);
+
+            dbfq.wordDao().deleteAll();
+            dbfq.wordDao().insertAll(words);
 
         }).start();
 
