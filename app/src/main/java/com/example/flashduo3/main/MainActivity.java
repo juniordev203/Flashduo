@@ -45,8 +45,14 @@ public class MainActivity extends AppCompatActivity {
         btnbatdau = findViewById(R.id.btnbatdau);
         textView2 = findViewById(R.id.textView2);
 
-        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-        AppDatabaseForQuestion dbfq = AppDatabaseForQuestion.getDatabase(getApplicationContext());
+        new Thread(() -> {
+            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+            AppDatabaseForQuestion dbfq = AppDatabaseForQuestion.getDatabase(getApplicationContext());
+            if(db.wordDao().getRowCount() == 0){
+                JsonManipulator jsonmanu = new JsonManipulator();
+                jsonmanu.insertJsonDataIntoDatabase(db,dbfq, getApplicationContext());
+            }
+        }).start();
 //        JsonManipulator jsonmanu = new JsonManipulator();
 //        jsonmanu.insertJsonDataIntoDatabase(db,dbfq, getApplicationContext());
 
