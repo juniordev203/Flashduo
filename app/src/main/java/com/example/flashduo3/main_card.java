@@ -20,7 +20,6 @@ public class main_card extends AppCompatActivity {
     private ImageView img_plus;
     private ImageView img_undo;
     private ImageView img_play;
-    private ImageView img_flip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +58,6 @@ public class main_card extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        img_flip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(main_card.this, main_flashcard.class);
-                startActivity(intent);
-            }
-        });
     }
 
     // Phương thức này được sử dụng để khởi tạo giao diện người dùng
@@ -76,6 +67,5 @@ public class main_card extends AppCompatActivity {
         img_plus = findViewById(R.id.img_plus);
         img_undo = findViewById(R.id.img_undo);
         img_play = findViewById(R.id.img_play);
-        img_flip = findViewById(R.id.img_flip);
     }
 }
